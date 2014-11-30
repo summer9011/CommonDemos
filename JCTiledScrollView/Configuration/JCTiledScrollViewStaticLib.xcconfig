@@ -1,0 +1,11 @@
+
+
+PRODUCT_NAME = JCTiledScrollView
+MACH_O_TYPE = staticlib
+
+SKIP_INSTALL = YES
+DSTROOT = /tmp/$(TARGET_NAME).dst
+
+GCC_PREFIX_HEADER = JCTiledScrollViewStaticLib/$(PRODUCT_NAME)-Prefix.pch
+
+PUBLIC_HEADERS_FOLDER_PATH = $(PRODUCT_NAME)
