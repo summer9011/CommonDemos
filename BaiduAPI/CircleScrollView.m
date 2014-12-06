@@ -212,9 +212,6 @@ typedef NS_ENUM(int, PagePosition){
             }
             break;
         case PageRight:            //向右移动scrollView
-            if (self.currentIndex==self.imageArr.count-1) {
-                [self loadMoreMemory];
-            }
             if (self.currentIndex<self.imageArr.count-1) {
                 self.currentIndex++;
             }
@@ -222,7 +219,12 @@ typedef NS_ENUM(int, PagePosition){
         case PageCenter:
             break;
     }
-    [self resetScrollViews];
+    
+    if (self.currentIndex==self.imageArr.count-1) {
+        [self loadMoreMemory];
+    }else{
+        [self resetScrollViews];
+    }
 }
 
 -(void)resetScrollViews {
