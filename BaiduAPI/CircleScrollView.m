@@ -23,10 +23,11 @@ typedef NS_ENUM(int, PagePosition){
 
 @implementation CircleScrollView
 
--(id)initWithFrame:(CGRect)frame ImageArray:(NSMutableArray *)imageArr {
+-(id)initWithFrame:(CGRect)frame ImageArray:(NSArray *)imageArr CurrentIndex:(int)index {
     self=[super initWithFrame:frame];
     if (self) {
-        self.imageArr=imageArr;
+        self.imageArr=(NSMutableArray *)imageArr;
+        self.currentIndex=index;
         doubleClickZoom=NO;
         size=self.frame.size;
         [self initSelfScroll];
@@ -211,6 +212,9 @@ typedef NS_ENUM(int, PagePosition){
             }
             break;
         case PageRight:            //向右移动scrollView
+            if (self.currentIndex==self.imageArr.count-1) {
+                [self loadMoreMemory];
+            }
             if (self.currentIndex<self.imageArr.count-1) {
                 self.currentIndex++;
             }
@@ -218,14 +222,24 @@ typedef NS_ENUM(int, PagePosition){
         case PageCenter:
             break;
     }
-    
+    [self resetScrollViews];
+}
+
+-(void)resetScrollViews {
     UIImageView *leftImg=self.leftScroll.subviews[0];
     UIImageView *centerImg=self.centerScroll.subviews[0];
     UIImageView *rightImg=self.rightScroll.subviews[0];
     
     //重新生成数据
     [self setImageViewContent:leftImg And:centerImg And:rightImg];
+}
+
+//加载更多留念
+-(void)loadMoreMemory {
+    [self.circleDelegate willAppendMoreImage:self];
     
+    [self resetScrollViews];
+    self.contentOffset=CGPointMake(size.width, 0);
 }
 
 @end

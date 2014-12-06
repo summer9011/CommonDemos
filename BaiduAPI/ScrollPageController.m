@@ -31,24 +31,12 @@
                         @"1.0.3",
                         @"1.0.4",
                         @"2.1.1",
-                        @"2.1.2",
-                        @"2.1.3",
-                        @"2.1.4",
-                        @"2.1.5",
-                        @"2.1.6",
-                        @"2.1.7",
-                        @"2.1.8",
-                        @"2.1.9",
-                        @"2.2.1",
-                        @"2.2.2",
-                        @"2.2.3",
-                        @"2.2.4",
-                        @"2.2.5",
-                        @"2.2.6"
+                        @"2.1.2"
                         ];
+    NSMutableArray *imgArr=[NSMutableArray array];
+    [imgArr addObjectsFromArray:imageArr];
     
-    _circleScroll=[[CircleScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds ImageArray:imageArr];
-    _circleScroll.currentIndex=4;       //设置当前页
+    _circleScroll=[[CircleScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds ImageArray:imgArr CurrentIndex:4];
     _circleScroll.circleDelegate=self;
     
     _circleScroll.backgroundColor=[UIColor blackColor];
@@ -83,6 +71,20 @@
 //完成切换
 -(void)didScrollWithCurrentIndex:(int)index {
     self.navigationItem.title=[NSString stringWithFormat:@"%d / %d",index+1,_circleScroll.imageArr.count];
+}
+
+//加载更多图片
+-(void)willAppendMoreImage:(CircleScrollView *)cicleScrollView {
+    NSLog(@"加载更多");
+    NSArray *moreArr=@[
+                       @"2.2.2",
+                       @"2.2.3",
+                       @"2.2.4",
+                       @"2.2.5",
+                       @"2.2.6"
+                       ];
+    
+    [cicleScrollView.imageArr addObjectsFromArray:moreArr];
 }
 
 @end
