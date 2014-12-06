@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBV-de-5KM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBV-de-5KM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -188,6 +188,23 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="rxL-5P-YAx" kind="push" id="E8Q-P6-qWk"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="4fB-q8-ZHB" style="IBUITableViewCellStyleDefault" id="gOr-Kg-oP8">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gOr-Kg-oP8" id="4Vq-Dy-xmN">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="ScrollView循环左右滑动" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4fB-q8-ZHB">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="HsQ-sK-UfW" kind="push" id="BTf-8E-u7I"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -710,6 +727,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uC1-1s-1kY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1026" y="1993"/>
+        </scene>
+        <!--ScrollView循环左右滑动-->
+        <scene sceneID="1N8-dN-lHA">
+            <objects>
+                <viewController id="HsQ-sK-UfW" customClass="ScrollPageController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hrW-XS-Vp3"/>
+                        <viewControllerLayoutGuide type="bottom" id="40M-Tf-KlN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iNd-RX-84c">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ScrollView循环左右滑动" id="MgA-tE-Dkg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FIB-TO-zBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1809" y="1765"/>
         </scene>
         <!--自定义地图-->
         <scene sceneID="ihA-EP-Nnk">

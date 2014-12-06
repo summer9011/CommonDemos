@@ -47,6 +47,8 @@
 		6E94DCBD1A24462A00DF285B /* cut@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E94DCBA1A24462A00DF285B /* cut@3x.png */; };
 		6E94DCC31A24531300DF285B /* NLCropViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E94DCC01A24531300DF285B /* NLCropViewLayer.m */; };
 		6E94DCC41A24531300DF285B /* NLImageCropperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E94DCC21A24531300DF285B /* NLImageCropperView.m */; };
+		6EC201531A32B01800B4BECA /* ScrollPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC201521A32B01800B4BECA /* ScrollPageController.m */; };
+		6EC201571A32B0B000B4BECA /* CircleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC201561A32B0B000B4BECA /* CircleScrollView.m */; };
 		6ECBD3B71A0A5DF4009C3473 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ECBD3B61A0A5DF4009C3473 /* back.png */; };
 		6ECBD3BD1A0A6AE0009C3473 /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD3BC1A0A6AE0009C3473 /* DownloadViewController.m */; };
 		6ECCC50B1A257CE800B2442B /* corner.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ECCC50A1A257CE800B2442B /* corner.png */; };
@@ -862,6 +864,10 @@
 		6E94DCC01A24531300DF285B /* NLCropViewLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLCropViewLayer.m; sourceTree = "<group>"; };
 		6E94DCC11A24531300DF285B /* NLImageCropperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLImageCropperView.h; sourceTree = "<group>"; };
 		6E94DCC21A24531300DF285B /* NLImageCropperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLImageCropperView.m; sourceTree = "<group>"; };
+		6EC201511A32B01800B4BECA /* ScrollPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollPageController.h; sourceTree = "<group>"; };
+		6EC201521A32B01800B4BECA /* ScrollPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollPageController.m; sourceTree = "<group>"; };
+		6EC201551A32B0B000B4BECA /* CircleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleScrollView.h; sourceTree = "<group>"; };
+		6EC201561A32B0B000B4BECA /* CircleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleScrollView.m; sourceTree = "<group>"; };
 		6ECBD3B61A0A5DF4009C3473 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = SOURCE_ROOT; };
 		6ECBD3BB1A0A6AE0009C3473 /* DownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
 		6ECBD3BC1A0A6AE0009C3473 /* DownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
@@ -1900,7 +1906,7 @@
 			path = SDWebImage;
 			sourceTree = SOURCE_ROOT;
 		};
-		6E7BE7341A1C246600268FE2 /* ImageHandle */ = {
+		6E7BE7341A1C246600268FE2 /* 从相册中获取图像并处理 */ = {
 			isa = PBXGroup;
 			children = (
 				6E7BE7271A1C1E8000268FE2 /* HandleImageController.h */,
@@ -1918,7 +1924,7 @@
 				6E7BE7441A1C290100268FE2 /* CollectionCell.m */,
 				6E7BE7451A1C290100268FE2 /* CollectionCell.xib */,
 			);
-			name = ImageHandle;
+			name = "从相册中获取图像并处理";
 			sourceTree = "<group>";
 		};
 		6E7BE7351A1C24B000268FE2 /* Libraries */ = {
@@ -1926,7 +1932,6 @@
 			children = (
 				6EF5C0F11A26A7E70044318A /* GUPImageLib */,
 				6E94DCBE1A24531300DF285B /* NLCropImage */,
-				6ECF22D21A0B38CF00B531A7 /* Custom */,
 				6ED6D1F31A12FEAE0036541E /* JCTiledScrollView */,
 				6E590B701A0C920300190F79 /* SDWebImage */,
 				6ED62A6F1A085BB800106CE8 /* ASIHttpRequest */,
@@ -1944,6 +1949,90 @@
 				6E94DCC21A24531300DF285B /* NLImageCropperView.m */,
 			);
 			path = NLCropImage;
+			sourceTree = "<group>";
+		};
+		6EC201541A32B01E00B4BECA /* ScrollView循环左右滑动 */ = {
+			isa = PBXGroup;
+			children = (
+				6EC201511A32B01800B4BECA /* ScrollPageController.h */,
+				6EC201521A32B01800B4BECA /* ScrollPageController.m */,
+				6EC201551A32B0B000B4BECA /* CircleScrollView.h */,
+				6EC201561A32B0B000B4BECA /* CircleScrollView.m */,
+			);
+			name = "ScrollView循环左右滑动";
+			sourceTree = "<group>";
+		};
+		6EC201581A32C16800B4BECA /* 自定义Baidu地图 */ = {
+			isa = PBXGroup;
+			children = (
+				6ED629F41A07688D00106CE8 /* LocationViewController.h */,
+				6ED629F51A07688D00106CE8 /* LocationViewController.mm */,
+			);
+			name = "自定义Baidu地图";
+			sourceTree = "<group>";
+		};
+		6EC201591A32C20D00B4BECA /* ASI和SDWI缓存 */ = {
+			isa = PBXGroup;
+			children = (
+				6ECF22D21A0B38CF00B531A7 /* Custom */,
+				6ED62ACA1A08651E00106CE8 /* ASICacheViewController.h */,
+				6ED62ACB1A08651E00106CE8 /* ASICacheViewController.m */,
+			);
+			name = "ASI和SDWI缓存";
+			sourceTree = "<group>";
+		};
+		6EC2015A1A32C25F00B4BECA /* CAGradientLayer渐变色 */ = {
+			isa = PBXGroup;
+			children = (
+				6E2C562B1A08A55E0049ED5A /* ChangeColorController.h */,
+				6E2C562C1A08A55E0049ED5A /* ChangeColorController.m */,
+			);
+			name = "CAGradientLayer渐变色";
+			sourceTree = "<group>";
+		};
+		6EC2015B1A32C28400B4BECA /* ASI断点续传下载 */ = {
+			isa = PBXGroup;
+			children = (
+				6ECBD3BB1A0A6AE0009C3473 /* DownloadViewController.h */,
+				6ECBD3BC1A0A6AE0009C3473 /* DownloadViewController.m */,
+			);
+			name = "ASI断点续传下载";
+			sourceTree = "<group>";
+		};
+		6EC2015C1A32C29800B4BECA /* WebView例子NSURLCache */ = {
+			isa = PBXGroup;
+			children = (
+				6ED6DD291A0E12DC00253D88 /* WebViewController.h */,
+				6ED6DD2A1A0E12DC00253D88 /* WebViewController.m */,
+			);
+			name = "WebView例子NSURLCache";
+			sourceTree = "<group>";
+		};
+		6EC2015D1A32C2C400B4BECA /* 自定义地图 */ = {
+			isa = PBXGroup;
+			children = (
+				6ED6D0971A10ACF60036541E /* CustomMapController.h */,
+				6ED6D0981A10ACF60036541E /* CustomMapController.m */,
+			);
+			name = "自定义地图";
+			sourceTree = "<group>";
+		};
+		6EC2015E1A32C2D400B4BECA /* JCTiledView */ = {
+			isa = PBXGroup;
+			children = (
+				6ED6D2231A1301680036541E /* JCTiledViewController.h */,
+				6ED6D2241A1301680036541E /* JCTiledViewController.m */,
+			);
+			name = JCTiledView;
+			sourceTree = "<group>";
+		};
+		6EC2015F1A32C2E500B4BECA /* 图片压缩保留exif */ = {
+			isa = PBXGroup;
+			children = (
+				6ED95EE21A15F1E600675829 /* EXIFViewController.h */,
+				6ED95EE31A15F1E600675829 /* EXIFViewController.m */,
+			);
+			name = "图片压缩保留exif";
 			sourceTree = "<group>";
 		};
 		6ECF22D21A0B38CF00B531A7 /* Custom */ = {
@@ -1982,23 +2071,16 @@
 				6ED6296D1A07499800106CE8 /* AppDelegate.mm */,
 				6ED629F11A07636100106CE8 /* MapDemoListController.h */,
 				6ED629F21A07636100106CE8 /* MapDemoListController.mm */,
-				6ED629F41A07688D00106CE8 /* LocationViewController.h */,
-				6ED629F51A07688D00106CE8 /* LocationViewController.mm */,
-				6ED62ACA1A08651E00106CE8 /* ASICacheViewController.h */,
-				6ED62ACB1A08651E00106CE8 /* ASICacheViewController.m */,
-				6E2C562B1A08A55E0049ED5A /* ChangeColorController.h */,
-				6E2C562C1A08A55E0049ED5A /* ChangeColorController.m */,
-				6ECBD3BB1A0A6AE0009C3473 /* DownloadViewController.h */,
-				6ECBD3BC1A0A6AE0009C3473 /* DownloadViewController.m */,
-				6ED6DD291A0E12DC00253D88 /* WebViewController.h */,
-				6ED6DD2A1A0E12DC00253D88 /* WebViewController.m */,
-				6ED6D0971A10ACF60036541E /* CustomMapController.h */,
-				6ED6D0981A10ACF60036541E /* CustomMapController.m */,
-				6ED6D2231A1301680036541E /* JCTiledViewController.h */,
-				6ED6D2241A1301680036541E /* JCTiledViewController.m */,
-				6ED95EE21A15F1E600675829 /* EXIFViewController.h */,
-				6ED95EE31A15F1E600675829 /* EXIFViewController.m */,
-				6E7BE7341A1C246600268FE2 /* ImageHandle */,
+				6EC201581A32C16800B4BECA /* 自定义Baidu地图 */,
+				6EC201591A32C20D00B4BECA /* ASI和SDWI缓存 */,
+				6EC2015A1A32C25F00B4BECA /* CAGradientLayer渐变色 */,
+				6EC2015B1A32C28400B4BECA /* ASI断点续传下载 */,
+				6EC2015C1A32C29800B4BECA /* WebView例子NSURLCache */,
+				6EC2015D1A32C2C400B4BECA /* 自定义地图 */,
+				6EC2015E1A32C2D400B4BECA /* JCTiledView */,
+				6EC2015F1A32C2E500B4BECA /* 图片压缩保留exif */,
+				6E7BE7341A1C246600268FE2 /* 从相册中获取图像并处理 */,
+				6EC201541A32B01E00B4BECA /* ScrollView循环左右滑动 */,
 				6ED629721A07499800106CE8 /* Main.storyboard */,
 				6ED629751A07499800106CE8 /* Images.xcassets */,
 				6ED629771A07499800106CE8 /* LaunchScreen.xib */,
@@ -3808,6 +3890,7 @@
 				6EF5C21A1A26A8120044318A /* GPUImageGammaFilter.m in Sources */,
 				6EF5C20E1A26A8120044318A /* GPUimageDirectionalSobelEdgeDetectionFilter.m in Sources */,
 				6E590B931A0C920300190F79 /* NSData+ImageContentType.m in Sources */,
+				6EC201531A32B01800B4BECA /* ScrollPageController.m in Sources */,
 				6EF5C1FF1A26A8120044318A /* GPUImageChromaKeyBlendFilter.m in Sources */,
 				6ED629F31A07636100106CE8 /* MapDemoListController.mm in Sources */,
 				6EF5C2381A26A8120044318A /* GPUImageOpenGLESContext.m in Sources */,
@@ -3828,6 +3911,7 @@
 				6EF5C2311A26A8120044318A /* GPUImageMosaicFilter.m in Sources */,
 				6EF5C2031A26A8120044318A /* GPUImageColorInvertFilter.m in Sources */,
 				6ED6D08D1A103DAE0036541E /* MappingRule.m in Sources */,
+				6EC201571A32B0B000B4BECA /* CircleScrollView.m in Sources */,
 				6EF5C22A1A26A8120044318A /* GPUImageLocalBinaryPatternFilter.m in Sources */,
 				6EF5C2521A26A8120044318A /* GPUImageSketchFilter.m in Sources */,
 				6EF5C2641A26A8120044318A /* GPUImageTwoInputFilter.m in Sources */,

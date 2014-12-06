@@ -94,7 +94,6 @@ enum rectPoint {LeftTop = 0, RightTop=1, LeftBottom = 2, RightBottom = 3, MoveCe
     filter=[[GPUImageRGBFilter alloc] init];
     _imageView=[[GPUImageView alloc] init];
     
-//    _image=image;
     currentColorMatrix=-1;
     _transform=1;
     
@@ -111,19 +110,6 @@ enum rectPoint {LeftTop = 0, RightTop=1, LeftBottom = 2, RightBottom = 3, MoveCe
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
-/*
--(void)setHandleControllerImage:(UIImage *)image {
-    _image=image;
-    currentColorMatrix=-1;
-    _transform=1;
-    
-    [self initStaticPicture];
-    
-    //设置2个坐标系之间的距离
-    _coordinateOffset=_resizeImageRect.origin;
-}
-*/
 
 -(void)initStaticPicture {
     [self resizeImageScroll:_image];
@@ -479,14 +465,6 @@ enum rectPoint {LeftTop = 0, RightTop=1, LeftBottom = 2, RightBottom = 3, MoveCe
     
     CGPoint locationPoint = [[touches anyObject] locationInView:self.view];
     
-    /*
-    NSLog(@"当前点击的位置 %@",NSStringFromCGPoint(locationPoint));
-    NSLog(@"裁剪框的位置 %@",NSStringFromCGRect(_translatedCropRect));
-    NSLog(@"图片区域的位置 %@",NSStringFromCGSize(_imageView.bounds.size));
-    NSLog(@"偏移量 %@",NSStringFromCGPoint(_coordinateOffset));
-    NSLog(@"不在图片范围内 %@",[NSNumber numberWithBool:locationPoint.x<_coordinateOffset.x || locationPoint.x>(_imageView.bounds.size.width*_imgScale+_coordinateOffset.x) || locationPoint.y<(_coordinateOffset.y+navitop) || locationPoint.y>(_imageView.bounds.size.height*_imgScale+_coordinateOffset.y+navitop)]);
-    */
-    
     if (locationPoint.x<_coordinateOffset.x || locationPoint.x>(_imageView.bounds.size.width*_imgScale+_coordinateOffset.x) || locationPoint.y<(_coordinateOffset.y+navitop) || locationPoint.y>(_imageView.bounds.size.height*_imgScale+_coordinateOffset.y+navitop)) {
         _movePoint=NoPoint;
         return;
@@ -514,7 +492,6 @@ enum rectPoint {LeftTop = 0, RightTop=1, LeftBottom = 2, RightBottom = 3, MoveCe
     } else  //  在裁剪框外边
         _movePoint = NoPoint;
     
-//    NSLog(@"movePoint %d",_movePoint);
 }
 
 //移动裁剪框
@@ -522,13 +499,6 @@ enum rectPoint {LeftTop = 0, RightTop=1, LeftBottom = 2, RightBottom = 3, MoveCe
     [super touchesMoved:touches withEvent:event];
     
     CGPoint locationPoint = [[touches anyObject] locationInView:self.view];
-    
-    /*
-    NSLog(@"当前点击的位置 %@",NSStringFromCGPoint(locationPoint));
-    NSLog(@"裁剪框的位置 %@",NSStringFromCGRect(_translatedCropRect));
-    NSLog(@"图片区域的位置 %@",NSStringFromCGSize(_imageView.bounds.size));
-    NSLog(@"偏移量 %@",NSStringFromCGPoint(_coordinateOffset));
-    */
      
     if (locationPoint.x<_coordinateOffset.x || locationPoint.x>(_imageView.bounds.size.width*_imgScale+_coordinateOffset.x) || locationPoint.y<(_coordinateOffset.y+navitop) || locationPoint.y>(_imageView.bounds.size.height*_imgScale+_coordinateOffset.y+navitop)) {
         _movePoint=NoPoint;
