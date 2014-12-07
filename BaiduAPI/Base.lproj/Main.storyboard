@@ -847,9 +847,70 @@
                     <view key="view" contentMode="scaleToFill" id="Qe4-W2-ev2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efS-TF-1N9">
+                                <rect key="frame" x="266" y="94" width="69" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="f2c-sA-WUA"/>
+                                    <constraint firstAttribute="height" constant="30" id="lJT-Hc-lAr"/>
+                                </constraints>
+                                <state key="normal" title="NSThread">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doNSThread:" destination="C8c-EP-mkE" eventType="touchUpInside" id="sHR-ZU-eI1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYR-bX-qrN">
+                                <rect key="frame" x="256" y="154" width="89" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="89" id="cJb-V2-NF8"/>
+                                    <constraint firstAttribute="height" constant="30" id="tkn-dD-noC"/>
+                                </constraints>
+                                <state key="normal" title="NSOperation">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doNSOperation:" destination="C8c-EP-mkE" eventType="touchUpInside" id="SP9-Pu-oXG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duD-cY-DRA">
+                                <rect key="frame" x="283" y="214" width="34" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="haV-fY-B8a"/>
+                                    <constraint firstAttribute="height" constant="30" id="qAF-C7-Uxy"/>
+                                </constraints>
+                                <state key="normal" title="GCD">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doGCD:" destination="C8c-EP-mkE" eventType="touchUpInside" id="yz9-8k-5dv"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cng-J1-rBZ">
+                                <rect key="frame" x="180" y="254" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="0XN-sh-MBC"/>
+                                    <constraint firstAttribute="width" constant="240" id="o0q-EM-jna"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="zYR-bX-qrN" secondAttribute="centerX" id="8gm-qE-joD"/>
+                            <constraint firstAttribute="centerX" secondItem="cng-J1-rBZ" secondAttribute="centerX" id="IN4-Ik-ogh"/>
+                            <constraint firstItem="zYR-bX-qrN" firstAttribute="top" secondItem="efS-TF-1N9" secondAttribute="bottom" constant="30" id="UF2-al-2jA"/>
+                            <constraint firstAttribute="centerX" secondItem="efS-TF-1N9" secondAttribute="centerX" id="Wuv-4N-82V"/>
+                            <constraint firstItem="cng-J1-rBZ" firstAttribute="top" secondItem="duD-cY-DRA" secondAttribute="bottom" constant="10" id="YHH-ji-kEc"/>
+                            <constraint firstAttribute="centerX" secondItem="duD-cY-DRA" secondAttribute="centerX" id="cHO-nP-6T0"/>
+                            <constraint firstItem="efS-TF-1N9" firstAttribute="top" secondItem="ekR-jd-l5d" secondAttribute="bottom" constant="30" id="gb6-Wc-myX"/>
+                            <constraint firstItem="duD-cY-DRA" firstAttribute="top" secondItem="zYR-bX-qrN" secondAttribute="bottom" constant="30" id="q4X-3e-tDg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="多线程例子" id="mBa-e0-QhS"/>
+                    <connections>
+                        <outlet property="imgView" destination="cng-J1-rBZ" id="QfD-AY-GuX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMS-dE-Nfu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
