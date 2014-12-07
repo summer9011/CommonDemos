@@ -47,10 +47,13 @@
 		6E94DCBD1A24462A00DF285B /* cut@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E94DCBA1A24462A00DF285B /* cut@3x.png */; };
 		6E94DCC31A24531300DF285B /* NLCropViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E94DCC01A24531300DF285B /* NLCropViewLayer.m */; };
 		6E94DCC41A24531300DF285B /* NLImageCropperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E94DCC21A24531300DF285B /* NLImageCropperView.m */; };
+		6EC1EB091A3348B0006A704C /* TableCellDeleteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1EB081A3348B0006A704C /* TableCellDeleteController.m */; };
+		6EC1EB0C1A3348DE006A704C /* MultiThreadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1EB0B1A3348DE006A704C /* MultiThreadController.m */; };
 		6EC201531A32B01800B4BECA /* ScrollPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC201521A32B01800B4BECA /* ScrollPageController.m */; };
 		6EC201571A32B0B000B4BECA /* CircleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC201561A32B0B000B4BECA /* CircleScrollView.m */; };
 		6ECBD3B71A0A5DF4009C3473 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ECBD3B61A0A5DF4009C3473 /* back.png */; };
 		6ECBD3BD1A0A6AE0009C3473 /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD3BC1A0A6AE0009C3473 /* DownloadViewController.m */; };
+		6ECC3B8D1A3444D2000DAEF2 /* daa.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ECC3B8C1A3444D2000DAEF2 /* daa.png */; };
 		6ECCC50B1A257CE800B2442B /* corner.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ECCC50A1A257CE800B2442B /* corner.png */; };
 		6ECF22CF1A0A1B1A00B531A7 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ECF22CE1A0A1B1A00B531A7 /* ImageIO.framework */; };
 		6ECF22D11A0A1B2800B531A7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ECF22D01A0A1B2800B531A7 /* MapKit.framework */; };
@@ -864,6 +867,10 @@
 		6E94DCC01A24531300DF285B /* NLCropViewLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLCropViewLayer.m; sourceTree = "<group>"; };
 		6E94DCC11A24531300DF285B /* NLImageCropperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLImageCropperView.h; sourceTree = "<group>"; };
 		6E94DCC21A24531300DF285B /* NLImageCropperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLImageCropperView.m; sourceTree = "<group>"; };
+		6EC1EB071A3348B0006A704C /* TableCellDeleteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCellDeleteController.h; sourceTree = "<group>"; };
+		6EC1EB081A3348B0006A704C /* TableCellDeleteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCellDeleteController.m; sourceTree = "<group>"; };
+		6EC1EB0A1A3348DE006A704C /* MultiThreadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiThreadController.h; sourceTree = "<group>"; };
+		6EC1EB0B1A3348DE006A704C /* MultiThreadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiThreadController.m; sourceTree = "<group>"; };
 		6EC201511A32B01800B4BECA /* ScrollPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollPageController.h; sourceTree = "<group>"; };
 		6EC201521A32B01800B4BECA /* ScrollPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollPageController.m; sourceTree = "<group>"; };
 		6EC201551A32B0B000B4BECA /* CircleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleScrollView.h; sourceTree = "<group>"; };
@@ -871,6 +878,7 @@
 		6ECBD3B61A0A5DF4009C3473 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = SOURCE_ROOT; };
 		6ECBD3BB1A0A6AE0009C3473 /* DownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
 		6ECBD3BC1A0A6AE0009C3473 /* DownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
+		6ECC3B8C1A3444D2000DAEF2 /* daa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daa.png; sourceTree = "<group>"; };
 		6ECCC50A1A257CE800B2442B /* corner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corner.png; sourceTree = "<group>"; };
 		6ECF22CE1A0A1B1A00B531A7 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		6ECF22D01A0A1B2800B531A7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -1951,6 +1959,24 @@
 			path = NLCropImage;
 			sourceTree = "<group>";
 		};
+		6EC1EB051A334871006A704C /* 多线程例子 */ = {
+			isa = PBXGroup;
+			children = (
+				6EC1EB0A1A3348DE006A704C /* MultiThreadController.h */,
+				6EC1EB0B1A3348DE006A704C /* MultiThreadController.m */,
+			);
+			name = "多线程例子";
+			sourceTree = "<group>";
+		};
+		6EC1EB061A334879006A704C /* TableView删除功能 */ = {
+			isa = PBXGroup;
+			children = (
+				6EC1EB071A3348B0006A704C /* TableCellDeleteController.h */,
+				6EC1EB081A3348B0006A704C /* TableCellDeleteController.m */,
+			);
+			name = "TableView删除功能";
+			sourceTree = "<group>";
+		};
 		6EC201541A32B01E00B4BECA /* ScrollView循环左右滑动 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1990,13 +2016,13 @@
 			name = "CAGradientLayer渐变色";
 			sourceTree = "<group>";
 		};
-		6EC2015B1A32C28400B4BECA /* ASI断点续传下载 */ = {
+		6EC2015B1A32C28400B4BECA /* ASI断点续传下载和上传图片 */ = {
 			isa = PBXGroup;
 			children = (
 				6ECBD3BB1A0A6AE0009C3473 /* DownloadViewController.h */,
 				6ECBD3BC1A0A6AE0009C3473 /* DownloadViewController.m */,
 			);
-			name = "ASI断点续传下载";
+			name = "ASI断点续传下载和上传图片";
 			sourceTree = "<group>";
 		};
 		6EC2015C1A32C29800B4BECA /* WebView例子NSURLCache */ = {
@@ -2074,13 +2100,15 @@
 				6EC201581A32C16800B4BECA /* 自定义Baidu地图 */,
 				6EC201591A32C20D00B4BECA /* ASI和SDWI缓存 */,
 				6EC2015A1A32C25F00B4BECA /* CAGradientLayer渐变色 */,
-				6EC2015B1A32C28400B4BECA /* ASI断点续传下载 */,
+				6EC2015B1A32C28400B4BECA /* ASI断点续传下载和上传图片 */,
 				6EC2015C1A32C29800B4BECA /* WebView例子NSURLCache */,
 				6EC2015D1A32C2C400B4BECA /* 自定义地图 */,
 				6EC2015E1A32C2D400B4BECA /* JCTiledView */,
 				6EC2015F1A32C2E500B4BECA /* 图片压缩保留exif */,
 				6E7BE7341A1C246600268FE2 /* 从相册中获取图像并处理 */,
 				6EC201541A32B01E00B4BECA /* ScrollView循环左右滑动 */,
+				6EC1EB061A334879006A704C /* TableView删除功能 */,
+				6EC1EB051A334871006A704C /* 多线程例子 */,
 				6ED629721A07499800106CE8 /* Main.storyboard */,
 				6ED629751A07499800106CE8 /* Images.xcassets */,
 				6ED629771A07499800106CE8 /* LaunchScreen.xib */,
@@ -2093,6 +2121,7 @@
 		6ED629681A07499800106CE8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6ECC3B8C1A3444D2000DAEF2 /* daa.png */,
 				6ECCC50A1A257CE800B2442B /* corner.png */,
 				6E94DCB81A24462A00DF285B /* cut.png */,
 				6E94DCB91A24462A00DF285B /* cut@2x.png */,
@@ -3205,6 +3234,7 @@
 				TargetAttributes = {
 					6ED629641A07499800106CE8 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = RSXSFANAY7;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 0;
@@ -3349,6 +3379,7 @@
 				6ED955111A15D44600675829 /* 3.13.16.png in Resources */,
 				6ED9547F1A15D44500675829 /* 2.6.2.png in Resources */,
 				6ED9559D1A15D44600675829 /* 3.2.16.png in Resources */,
+				6ECC3B8D1A3444D2000DAEF2 /* daa.png in Resources */,
 				6ED9553E1A15D44600675829 /* 3.15.3.png in Resources */,
 				6ED6298F1A07526300106CE8 /* mapapi.bundle in Resources */,
 				6ED956181A15D44600675829 /* 3.8.19.png in Resources */,
@@ -3988,6 +4019,7 @@
 				6EF5C21F1A26A8120044318A /* GPUImageHardLightBlendFilter.m in Sources */,
 				6EF5C22B1A26A8120044318A /* GPUImageLookupFilter.m in Sources */,
 				6EF5C2661A26A8120044318A /* GPUImageTwoPassTextureSamplingFilter.m in Sources */,
+				6EC1EB091A3348B0006A704C /* TableCellDeleteController.m in Sources */,
 				6EF5C2371A26A8120044318A /* GPUImageOpacityFilter.m in Sources */,
 				6E590B981A0C920300190F79 /* SDWebImageDownloaderOperation.m in Sources */,
 				6EF5C2271A26A8120044318A /* GPUImageKuwaharaFilter.m in Sources */,
@@ -4014,6 +4046,7 @@
 				6EF5C25E1A26A8120044318A /* GPUImageTextureOutput.m in Sources */,
 				6ED6D21B1A12FEAE0036541E /* JCTiledLayer.m in Sources */,
 				6EF5C25F1A26A8120044318A /* GPUImageThresholdEdgeDetection.m in Sources */,
+				6EC1EB0C1A3348DE006A704C /* MultiThreadController.m in Sources */,
 				6EF5C2681A26A8120044318A /* GPUImageUnsharpMaskFilter.m in Sources */,
 				6EF5C2171A26A8120044318A /* GPUImageFilter.m in Sources */,
 				6ED629F61A07688D00106CE8 /* LocationViewController.mm in Sources */,
@@ -4148,7 +4181,9 @@
 		6ED629891A07499800106CE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BaiduAPI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -4159,13 +4194,16 @@
 					"$(PROJECT_DIR)/BaiduAPI/YACropImage",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		6ED6298A1A07499800106CE8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BaiduAPI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -4176,6 +4214,7 @@
 					"$(PROJECT_DIR)/BaiduAPI/YACropImage",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

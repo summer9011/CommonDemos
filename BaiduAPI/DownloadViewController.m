@@ -9,12 +9,15 @@
 #import "DownloadViewController.h"
 #import "ASIHTTPRequest.h"
 #import "ASINetworkQueue.h"
+#import "ASIFormDataRequest.h"
 
 @interface DownloadViewController ()
 
 @property (retain, nonatomic) IBOutlet UIProgressView *progress;
 @property (retain, nonatomic) IBOutlet UILabel *progressNum;
 @property (retain, nonatomic) ASINetworkQueue *myNetWorkQueue;
+
+@property (retain, nonatomic) UIImagePickerController *imagePicker;
 
 @end
 
@@ -27,12 +30,9 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
- * 下载资源
- */
+//下载资源
 - (IBAction)doDownload:(id)sender {
     NSString *storgePath=[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/download/putty.exe"];
     
@@ -44,14 +44,38 @@
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//选择图片并上传
+- (IBAction)doUploadImage:(id)sender {
+    _imagePicker=[[UIImagePickerController alloc] init];
+    _imagePicker.delegate=self;
+    _imagePicker.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:_imagePicker animated:YES completion:nil];
 }
-*/
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
+    
+    NSURL *url=[NSURL URLWithString:@"http://api.youwandao.com/memory/add"];
+    ASIFormDataRequest *formDataRequest=[ASIFormDataRequest requestWithURL:url];
+    [formDataRequest setPostValue:@"a46f51ffd7f043feab709a668c01f666" forKey:@"appkey"];
+    [formDataRequest setPostValue:@"077e674c6cc7853aa7e3b23af650e3ac" forKey:@"access_token"];
+    [formDataRequest setPostValue:@"测试" forKey:@"desc"];
+    [formDataRequest setPostValue:@"10" forKey:@"roadid"];
+    
+    NSData *imgData=UIImageJPEGRepresentation(image, 0.7);
+    [formDataRequest addData:imgData withFileName:@"memory.jpg" andContentType:@"image/jpeg" forKey:@"pic"];
+    
+    [formDataRequest setDelegate:self];
+    [formDataRequest setDidFinishSelector:@selector(requestFinishedOnAddImage:)];
+    [formDataRequest setTimeOutSeconds:10];
+    [formDataRequest setRequestMethod:@"POST"];
+    [formDataRequest startAsynchronous];
+}
+
+-(void)requestFinishedOnAddImage:(ASIHTTPRequest *)request {
+    NSLog(@"%@",request.responseString);
+    [_imagePicker dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

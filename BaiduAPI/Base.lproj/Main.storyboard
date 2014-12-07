@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="191" y="-364"/>
         </scene>
-        <!--百度地图demo-->
+        <!--DEMOS-->
         <scene sceneID="Ku3-Cu-9G9">
             <objects>
                 <tableViewController id="9UI-Sm-wZX" customClass="MapDemoListController" sceneMemberID="viewController">
@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
-                            <tableViewSection headerTitle="demo" id="XET-QO-Rvv">
+                            <tableViewSection headerTitle="tableView的头部" footerTitle="tableView的底部" id="XET-QO-Rvv">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Flm-F1-ohZ" style="IBUITableViewCellStyleDefault" id="CgA-nY-l4G">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -93,7 +93,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qeo-P4-d3Y" id="6Ck-nB-fFg">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="ASI断点续传下载" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yrV-8j-UKQ">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="ASI断点续传下载和上传图片" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yrV-8j-UKQ">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -207,6 +207,40 @@
                                             <segue destination="HsQ-sK-UfW" kind="push" id="BTf-8E-u7I"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Qy6-VU-eg2" style="IBUITableViewCellStyleDefault" id="ZIb-ep-Hd2">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZIb-ep-Hd2" id="gqS-0j-2vH">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="TableView删除功能" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qy6-VU-eg2">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Ex5-9O-wFv" kind="push" id="SAt-pz-R8F"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="dwO-wU-dBc" style="IBUITableViewCellStyleDefault" id="DqE-ZD-Ju8">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DqE-ZD-Ju8" id="odO-1J-7nS">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="多线程例子" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dwO-wU-dBc">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="C8c-EP-mkE" kind="push" id="zu2-hz-x3Q"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -215,7 +249,7 @@
                             <outlet property="delegate" destination="9UI-Sm-wZX" id="2uh-5f-dYV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="百度地图demo" id="wEl-1a-ipe"/>
+                    <navigationItem key="navigationItem" title="DEMOS" id="wEl-1a-ipe"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUl-OX-gWa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -538,7 +572,7 @@
             </objects>
             <point key="canvasLocation" x="1815" y="967"/>
         </scene>
-        <!--ASI断点续传下载-->
+        <!--ASI断点续传下载和上传图片-->
         <scene sceneID="Qs6-mm-dm0">
             <objects>
                 <viewController id="enC-9v-5o9" customClass="DownloadViewController" sceneMemberID="viewController">
@@ -585,6 +619,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOt-Sn-KZz">
+                                <rect key="frame" x="248" y="285" width="105" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="ZgG-eN-OPg"/>
+                                    <constraint firstAttribute="height" constant="30" id="xWL-h1-TYT"/>
+                                </constraints>
+                                <state key="normal" title="选择图片并上传">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doUploadImage:" destination="enC-9v-5o9" eventType="touchUpInside" id="VUx-j3-NrW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -594,14 +641,16 @@
                             <constraint firstItem="KCI-De-jdS" firstAttribute="leading" secondItem="5ih-BD-t3J" secondAttribute="leadingMargin" constant="10" id="8vv-49-4yO"/>
                             <constraint firstItem="jrM-zf-AmO" firstAttribute="top" secondItem="KCI-De-jdS" secondAttribute="bottom" constant="10" id="AlE-LS-XNF"/>
                             <constraint firstItem="KCI-De-jdS" firstAttribute="top" secondItem="XdW-hC-8wj" secondAttribute="bottom" constant="10" id="KFL-QO-Af0"/>
+                            <constraint firstAttribute="centerX" secondItem="eOt-Sn-KZz" secondAttribute="centerX" id="Ml5-L4-2kn"/>
                             <constraint firstItem="1pT-Gf-SZ2" firstAttribute="width" secondItem="jrM-zf-AmO" secondAttribute="width" id="Xpz-ln-rGi"/>
                             <constraint firstItem="jrM-zf-AmO" firstAttribute="leading" secondItem="5ih-BD-t3J" secondAttribute="leadingMargin" constant="10" id="YP6-cL-25k"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KCI-De-jdS" secondAttribute="trailing" constant="10" id="am0-mV-xMm"/>
                             <constraint firstItem="XdW-hC-8wj" firstAttribute="top" secondItem="o9U-FC-kKK" secondAttribute="bottom" constant="5" id="sB3-QO-xaq"/>
                             <constraint firstItem="1pT-Gf-SZ2" firstAttribute="height" secondItem="jrM-zf-AmO" secondAttribute="height" id="tO9-cB-vdD"/>
+                            <constraint firstAttribute="centerY" secondItem="eOt-Sn-KZz" secondAttribute="centerY" id="yf9-hw-eMJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ASI断点续传下载" id="1UH-Nr-Rpj"/>
+                    <navigationItem key="navigationItem" title="ASI断点续传下载和上传图片" id="1UH-Nr-Rpj"/>
                     <connections>
                         <outlet property="progress" destination="KCI-De-jdS" id="BRL-Qo-n2F"/>
                         <outlet property="progressNum" destination="1pT-Gf-SZ2" id="GBu-uq-2Wj"/>
@@ -746,6 +795,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FIB-TO-zBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1809" y="1765"/>
+        </scene>
+        <!--TableView删除功能-->
+        <scene sceneID="N4S-lN-8sI">
+            <objects>
+                <viewController id="Ex5-9O-wFv" customClass="TableCellDeleteController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qAy-oO-otr"/>
+                        <viewControllerLayoutGuide type="bottom" id="QIz-Wl-zTP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="19R-LF-iLH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vlE-9v-gXM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vlE-9v-gXM" firstAttribute="top" secondItem="19R-LF-iLH" secondAttribute="topMargin" id="VKM-dd-Gy6"/>
+                            <constraint firstItem="QIz-Wl-zTP" firstAttribute="top" secondItem="vlE-9v-gXM" secondAttribute="bottom" id="VLs-Ap-xom"/>
+                            <constraint firstItem="vlE-9v-gXM" firstAttribute="leading" secondItem="19R-LF-iLH" secondAttribute="leadingMargin" constant="-16" id="fbf-s4-6bz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vlE-9v-gXM" secondAttribute="trailing" constant="-16" id="gqt-my-WXA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="TableView删除功能" id="6bN-Z8-a9F">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Hpt-kz-EZd">
+                            <connections>
+                                <action selector="doEdit:" destination="Ex5-9O-wFv" id="bzO-f9-rRt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableA" destination="vlE-9v-gXM" id="iGL-Kw-7hB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rxo-by-qaX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1809" y="2437"/>
+        </scene>
+        <!--多线程例子-->
+        <scene sceneID="6fx-4b-GIW">
+            <objects>
+                <viewController id="C8c-EP-mkE" customClass="MultiThreadController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ekR-jd-l5d"/>
+                        <viewControllerLayoutGuide type="bottom" id="RRB-JA-EE3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qe4-W2-ev2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="多线程例子" id="mBa-e0-QhS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aMS-dE-Nfu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1809" y="3130"/>
         </scene>
         <!--自定义地图-->
         <scene sceneID="ihA-EP-Nnk">
