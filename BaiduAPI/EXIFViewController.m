@@ -162,7 +162,7 @@
 }
 
 /*
-//设置图片附加信息
+//将图片的exif信息写入到图片流
 -(NSData *)saveImageWithImageData:(NSData *)data Properties:(NSDictionary *)properties {
     
     NSMutableDictionary *dataDic=[NSMutableDictionary dictionaryWithDictionary:properties];
