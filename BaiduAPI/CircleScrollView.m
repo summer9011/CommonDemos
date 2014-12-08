@@ -52,7 +52,14 @@ typedef NS_ENUM(int, PagePosition){
     
     self.pagingEnabled=YES;
     self.contentSize=CGSizeMake(size.width*3, size.height);
-    self.contentOffset=CGPointMake(size.width, 0);
+    
+    if (self.currentIndex==0) {
+        self.contentOffset=CGPointZero;
+    }else if (self.currentIndex==self.imageArr.count-1){
+        self.contentOffset=CGPointMake(size.width*2, 0);
+    }else{
+        self.contentOffset=CGPointMake(size.width, 0);
+    }
     
     self.delegate=(id<UIScrollViewDelegate>)self;
 }
