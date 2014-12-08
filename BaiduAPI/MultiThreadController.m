@@ -124,6 +124,7 @@
 /*==============================================================================*/
 
 - (IBAction)doGCD:(id)sender {
+    /*
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURL *url=[NSURL URLWithString:@"http://avatar.csdn.net/2/C/D/1_totogo2010.jpg"];
         NSData *data=[[NSData alloc] initWithContentsOfURL:url];
@@ -133,6 +134,48 @@
                 self.imgView.image=image;
             });
         }
+    });
+    */
+    
+    /*
+    //dispatch_group_async实现监听一组任务是否完成
+    dispatch_queue_t queue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_group_t group=dispatch_group_create();
+    dispatch_group_async(group, queue, ^{
+        [NSThread sleepForTimeInterval:1];
+        NSLog(@"group1");
+    });
+    dispatch_group_async(group, queue, ^{
+        [NSThread sleepForTimeInterval:1];
+        NSLog(@"group2");
+    });
+    dispatch_group_async(group, queue, ^{
+        [NSThread sleepForTimeInterval:1];
+        NSLog(@"group3");
+    });
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSLog(@"main queue notify");
+    });
+    */
+    
+    //dispatch_barrier_async在它前面的任务结束后才执行，后边的任务会等待它执行完再执行
+    dispatch_queue_t queue=dispatch_queue_create("gcdtest", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:2];
+        NSLog(@"async1");
+    });
+    dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:2];
+        NSLog(@"async2");
+    });
+    dispatch_barrier_async(queue, ^{
+        NSLog(@"barrier");
+        [NSThread sleepForTimeInterval:3];
+    });
+    dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:1];
+        NSLog(@"async3");
     });
 }
 
