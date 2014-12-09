@@ -57,6 +57,7 @@
 		6ECCC50B1A257CE800B2442B /* corner.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ECCC50A1A257CE800B2442B /* corner.png */; };
 		6ECF22CF1A0A1B1A00B531A7 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ECF22CE1A0A1B1A00B531A7 /* ImageIO.framework */; };
 		6ECF22D11A0A1B2800B531A7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ECF22D01A0A1B2800B531A7 /* MapKit.framework */; };
+		6ED4D6C21A3721B700EAA5EF /* ResponserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED4D6C11A3721B700EAA5EF /* ResponserController.m */; };
 		6ED6296B1A07499800106CE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6296A1A07499800106CE8 /* main.m */; };
 		6ED6296E1A07499800106CE8 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6296D1A07499800106CE8 /* AppDelegate.mm */; };
 		6ED629741A07499800106CE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED629721A07499800106CE8 /* Main.storyboard */; };
@@ -882,6 +883,8 @@
 		6ECCC50A1A257CE800B2442B /* corner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corner.png; sourceTree = "<group>"; };
 		6ECF22CE1A0A1B1A00B531A7 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		6ECF22D01A0A1B2800B531A7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6ED4D6C01A3721B700EAA5EF /* ResponserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponserController.h; sourceTree = "<group>"; };
+		6ED4D6C11A3721B700EAA5EF /* ResponserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponserController.m; sourceTree = "<group>"; };
 		6ED629651A07499800106CE8 /* BaiduAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiduAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED629691A07499800106CE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ED6296A1A07499800106CE8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2072,6 +2075,15 @@
 			name = Custom;
 			sourceTree = "<group>";
 		};
+		6ED4D6BF1A37216000EAA5EF /* FirstResponser */ = {
+			isa = PBXGroup;
+			children = (
+				6ED4D6C01A3721B700EAA5EF /* ResponserController.h */,
+				6ED4D6C11A3721B700EAA5EF /* ResponserController.m */,
+			);
+			name = FirstResponser;
+			sourceTree = "<group>";
+		};
 		6ED6295C1A07499800106CE8 = {
 			isa = PBXGroup;
 			children = (
@@ -2109,6 +2121,7 @@
 				6EC201541A32B01E00B4BECA /* ScrollView循环左右滑动 */,
 				6EC1EB061A334879006A704C /* TableView删除功能 */,
 				6EC1EB051A334871006A704C /* 多线程例子 */,
+				6ED4D6BF1A37216000EAA5EF /* FirstResponser */,
 				6ED629721A07499800106CE8 /* Main.storyboard */,
 				6ED629751A07499800106CE8 /* Images.xcassets */,
 				6ED629771A07499800106CE8 /* LaunchScreen.xib */,
@@ -4023,6 +4036,7 @@
 				6EF5C2371A26A8120044318A /* GPUImageOpacityFilter.m in Sources */,
 				6E590B981A0C920300190F79 /* SDWebImageDownloaderOperation.m in Sources */,
 				6EF5C2271A26A8120044318A /* GPUImageKuwaharaFilter.m in Sources */,
+				6ED4D6C21A3721B700EAA5EF /* ResponserController.m in Sources */,
 				6ED62A8B1A085BB800106CE8 /* ASIHTTPRequest.m in Sources */,
 				6EF5C1F41A26A8120044318A /* GPUImageAdaptiveThresholdFilter.m in Sources */,
 				6E590B921A0C920300190F79 /* MKAnnotationView+WebCache.m in Sources */,
