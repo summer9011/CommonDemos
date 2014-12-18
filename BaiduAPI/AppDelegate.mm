@@ -55,6 +55,13 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
 }
 
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    NSLog(@"%@",notification.region);
+    
+    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@",notification.alertBody] message:nil delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
 /**
  *返回网络错误
  *@param iError 错误号

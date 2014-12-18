@@ -56,7 +56,6 @@
 		6ECC3B8D1A3444D2000DAEF2 /* daa.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ECC3B8C1A3444D2000DAEF2 /* daa.png */; };
 		6ECCC50B1A257CE800B2442B /* corner.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ECCC50A1A257CE800B2442B /* corner.png */; };
 		6ECF22CF1A0A1B1A00B531A7 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ECF22CE1A0A1B1A00B531A7 /* ImageIO.framework */; };
-		6ECF22D11A0A1B2800B531A7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ECF22D01A0A1B2800B531A7 /* MapKit.framework */; };
 		6ED4D6C21A3721B700EAA5EF /* ResponserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED4D6C11A3721B700EAA5EF /* ResponserController.m */; };
 		6ED6296B1A07499800106CE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6296A1A07499800106CE8 /* main.m */; };
 		6ED6296E1A07499800106CE8 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6296D1A07499800106CE8 /* AppDelegate.mm */; };
@@ -635,6 +634,7 @@
 		6ED95EE61A15F55F00675829 /* exif.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6ED95EE51A15F55F00675829 /* exif.jpg */; };
 		6EDA3C651A2301F8007D6D39 /* moving.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6EDA3C641A2301F8007D6D39 /* moving.gif */; };
 		6EDA3C6F1A230A3C007D6D39 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EDA3C6E1A230A3C007D6D39 /* libbaidumapapi.a */; };
+		6EE7F4E31A427810009833F0 /* PushController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE7F4E21A427810009833F0 /* PushController.m */; };
 		6EF5C1F11A26A8120044318A /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF5C0F41A26A8120044318A /* GLProgram.m */; };
 		6EF5C1F21A26A8120044318A /* GPUImage3x3ConvolutionFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF5C0F81A26A8120044318A /* GPUImage3x3ConvolutionFilter.m */; };
 		6EF5C1F31A26A8120044318A /* GPUImage3x3TextureSamplingFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF5C0FA1A26A8120044318A /* GPUImage3x3TextureSamplingFilter.m */; };
@@ -882,7 +882,6 @@
 		6ECC3B8C1A3444D2000DAEF2 /* daa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daa.png; sourceTree = "<group>"; };
 		6ECCC50A1A257CE800B2442B /* corner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corner.png; sourceTree = "<group>"; };
 		6ECF22CE1A0A1B1A00B531A7 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		6ECF22D01A0A1B2800B531A7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6ED4D6C01A3721B700EAA5EF /* ResponserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponserController.h; sourceTree = "<group>"; };
 		6ED4D6C11A3721B700EAA5EF /* ResponserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponserController.m; sourceTree = "<group>"; };
 		6ED629651A07499800106CE8 /* BaiduAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiduAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1561,6 +1560,8 @@
 		6ED95EE51A15F55F00675829 /* exif.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = exif.jpg; sourceTree = SOURCE_ROOT; };
 		6EDA3C641A2301F8007D6D39 /* moving.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = moving.gif; sourceTree = "<group>"; };
 		6EDA3C6E1A230A3C007D6D39 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
+		6EE7F4E11A427810009833F0 /* PushController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushController.h; sourceTree = "<group>"; };
+		6EE7F4E21A427810009833F0 /* PushController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushController.m; sourceTree = "<group>"; };
 		6EF5C0F31A26A8120044318A /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
 		6EF5C0F41A26A8120044318A /* GLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLProgram.m; sourceTree = "<group>"; };
 		6EF5C0F51A26A8120044318A /* GPUImage-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GPUImage-Prefix.pch"; sourceTree = "<group>"; };
@@ -1851,7 +1852,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6ECF22D11A0A1B2800B531A7 /* MapKit.framework in Frameworks */,
 				6ECF22CF1A0A1B1A00B531A7 /* ImageIO.framework in Frameworks */,
 				6ED62A941A085C2A00106CE8 /* libz.dylib in Frameworks */,
 				6ED62A921A085C0E00106CE8 /* MobileCoreServices.framework in Frameworks */,
@@ -2122,6 +2122,7 @@
 				6EC1EB061A334879006A704C /* TableView删除功能 */,
 				6EC1EB051A334871006A704C /* 多线程例子 */,
 				6ED4D6BF1A37216000EAA5EF /* FirstResponser */,
+				6EE7F4E01A4277CD009833F0 /* 基于地理位置的消息推送 */,
 				6ED629721A07499800106CE8 /* Main.storyboard */,
 				6ED629751A07499800106CE8 /* Images.xcassets */,
 				6ED629771A07499800106CE8 /* LaunchScreen.xib */,
@@ -2154,7 +2155,6 @@
 				6ED6D1441A10AEDF0036541E /* map.png */,
 				6ECBD3B61A0A5DF4009C3473 /* back.png */,
 				6ED62A931A085C2A00106CE8 /* libz.dylib */,
-				6ECF22D01A0A1B2800B531A7 /* MapKit.framework */,
 				6ECF22CE1A0A1B1A00B531A7 /* ImageIO.framework */,
 				6ED62A911A085C0E00106CE8 /* MobileCoreServices.framework */,
 				6ED62A8F1A085BFE00106CE8 /* CFNetwork.framework */,
@@ -2884,6 +2884,15 @@
 			path = map2;
 			sourceTree = SOURCE_ROOT;
 		};
+		6EE7F4E01A4277CD009833F0 /* 基于地理位置的消息推送 */ = {
+			isa = PBXGroup;
+			children = (
+				6EE7F4E11A427810009833F0 /* PushController.h */,
+				6EE7F4E21A427810009833F0 /* PushController.m */,
+			);
+			name = "基于地理位置的消息推送";
+			sourceTree = "<group>";
+		};
 		6EF5C0F11A26A7E70044318A /* GUPImageLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -3247,7 +3256,7 @@
 				TargetAttributes = {
 					6ED629641A07499800106CE8 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = RSXSFANAY7;
+						DevelopmentTeam = 8B3JGQL9SK;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 0;
@@ -3256,6 +3265,7 @@
 					};
 					6ED6297D1A07499800106CE8 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 8B3JGQL9SK;
 						TestTargetID = 6ED629641A07499800106CE8;
 					};
 				};
@@ -3902,6 +3912,7 @@
 				6EF5C22E1A26A8120044318A /* GPUImageMedianFilter.m in Sources */,
 				6EF5C20B1A26A8120044318A /* GPUImageDifferenceBlendFilter.m in Sources */,
 				6EF5C2021A26A8120044318A /* GPUImageColorDodgeBlendFilter.m in Sources */,
+				6EE7F4E31A427810009833F0 /* PushController.m in Sources */,
 				6ED6D21E1A12FEAE0036541E /* JCTiledView.m in Sources */,
 				6EF5C2091A26A8120044318A /* GPUImageCrosshatchFilter.m in Sources */,
 				6EF5C2051A26A8120044318A /* GPUImageColorPackingFilter.m in Sources */,

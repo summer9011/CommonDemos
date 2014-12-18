@@ -43,7 +43,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 13;
+    return 14;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -88,6 +88,9 @@
             break;
         case 12:
             cell.textLabel.text=@"FirstResponser";
+            break;
+        case 13:
+            cell.textLabel.text=@"基于地理位置的消息推送";
             break;
     }
     
@@ -138,6 +141,9 @@
             break;
         case 12:
             VC=[board instantiateViewControllerWithIdentifier:@"ResponserVC"];
+            break;
+        case 13:
+            VC=[board instantiateViewControllerWithIdentifier:@"PushVC"];
             break;
     }
     
