@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBV-de-5KM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBV-de-5KM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -421,10 +421,10 @@
             </objects>
             <point key="canvasLocation" x="-629" y="3460"/>
         </scene>
-        <!--Push Controller-->
+        <!--基于地理位置的消息推送-->
         <scene sceneID="KAh-oI-N55">
             <objects>
-                <viewController storyboardIdentifier="PushVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OOb-ab-tBv" customClass="PushController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PushVC" title="基于地理位置的消息推送" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OOb-ab-tBv" customClass="PushController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5D3-0u-hwR"/>
                         <viewControllerLayoutGuide type="bottom" id="OMF-q2-VVJ"/>
@@ -493,6 +493,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jNt-SA-yjE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="14" y="3460"/>
+        </scene>
+        <!--Bonjour服务发现-->
+        <scene sceneID="IWR-Nz-7Th">
+            <objects>
+                <viewController storyboardIdentifier="BonjourVC" title="Bonjour服务发现" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RPe-FE-WQE" customClass="BonjourController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M6j-6V-6qk"/>
+                        <viewControllerLayoutGuide type="bottom" id="LC2-1y-eab"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hcx-lp-pSd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ug5-GS-sx8">
+                                <rect key="frame" x="270" y="80" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="RdA-ua-eHd"/>
+                                    <constraint firstAttribute="height" constant="30" id="jXK-88-Oqh"/>
+                                </constraints>
+                                <state key="normal" title="发布服务">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="publishService:" destination="RPe-FE-WQE" eventType="touchUpInside" id="Gf9-G9-BCy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBl-ka-Kky">
+                                <rect key="frame" x="270" y="140" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="MRG-vT-VLs"/>
+                                    <constraint firstAttribute="height" constant="30" id="rT1-TB-qE2"/>
+                                </constraints>
+                                <state key="normal" title="解析服务">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ms2-DJ-mmR">
+                                <rect key="frame" x="270" y="200" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Nf0-95-YQM"/>
+                                    <constraint firstAttribute="width" constant="60" id="gbS-ab-krc"/>
+                                </constraints>
+                                <state key="normal" title="查找服务">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchService:" destination="RPe-FE-WQE" eventType="touchUpInside" id="89q-Q2-VbG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ug5-GS-sx8" firstAttribute="top" secondItem="M6j-6V-6qk" secondAttribute="bottom" constant="60" id="8RG-8l-DrE"/>
+                            <constraint firstItem="Ms2-DJ-mmR" firstAttribute="top" secondItem="SBl-ka-Kky" secondAttribute="bottom" constant="30" id="Amh-hy-cje"/>
+                            <constraint firstItem="SBl-ka-Kky" firstAttribute="top" secondItem="Ug5-GS-sx8" secondAttribute="bottom" constant="30" id="JaW-LB-U2K"/>
+                            <constraint firstItem="Ms2-DJ-mmR" firstAttribute="centerX" secondItem="SBl-ka-Kky" secondAttribute="centerX" id="RLT-XW-wdC"/>
+                            <constraint firstAttribute="centerX" secondItem="Ug5-GS-sx8" secondAttribute="centerX" id="pFr-O4-T9P"/>
+                            <constraint firstItem="Ms2-DJ-mmR" firstAttribute="centerX" secondItem="Ug5-GS-sx8" secondAttribute="centerX" id="yQv-xi-9jM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9UL-rz-4YT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="660" y="3460"/>
         </scene>
         <!--图片压缩保留exif-->
         <scene sceneID="9xG-Sa-ghq">
