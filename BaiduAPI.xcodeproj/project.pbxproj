@@ -56,6 +56,8 @@
 		6ECC3B8D1A3444D2000DAEF2 /* daa.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ECC3B8C1A3444D2000DAEF2 /* daa.png */; };
 		6ECCC50B1A257CE800B2442B /* corner.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ECCC50A1A257CE800B2442B /* corner.png */; };
 		6ECF22CF1A0A1B1A00B531A7 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ECF22CE1A0A1B1A00B531A7 /* ImageIO.framework */; };
+		6ED084F41A454B230075FE21 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED084F31A454B230075FE21 /* GameKit.framework */; };
+		6ED084F81A454B720075FE21 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED084F71A454B720075FE21 /* GameController.m */; };
 		6ED47CD81A42FBCE00CA1A8B /* BonjourController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED47CD71A42FBCE00CA1A8B /* BonjourController.m */; };
 		6ED4D6C21A3721B700EAA5EF /* ResponserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED4D6C11A3721B700EAA5EF /* ResponserController.m */; };
 		6ED6296B1A07499800106CE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6296A1A07499800106CE8 /* main.m */; };
@@ -883,6 +885,9 @@
 		6ECC3B8C1A3444D2000DAEF2 /* daa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daa.png; sourceTree = "<group>"; };
 		6ECCC50A1A257CE800B2442B /* corner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corner.png; sourceTree = "<group>"; };
 		6ECF22CE1A0A1B1A00B531A7 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		6ED084F31A454B230075FE21 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		6ED084F61A454B720075FE21 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		6ED084F71A454B720075FE21 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 		6ED47CD61A42FBCE00CA1A8B /* BonjourController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourController.h; sourceTree = "<group>"; };
 		6ED47CD71A42FBCE00CA1A8B /* BonjourController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourController.m; sourceTree = "<group>"; };
 		6ED4D6C01A3721B700EAA5EF /* ResponserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponserController.h; sourceTree = "<group>"; };
@@ -1855,6 +1860,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ED084F41A454B230075FE21 /* GameKit.framework in Frameworks */,
 				6ECF22CF1A0A1B1A00B531A7 /* ImageIO.framework in Frameworks */,
 				6ED62A941A085C2A00106CE8 /* libz.dylib in Frameworks */,
 				6ED62A921A085C0E00106CE8 /* MobileCoreServices.framework in Frameworks */,
@@ -2078,6 +2084,15 @@
 			name = Custom;
 			sourceTree = "<group>";
 		};
+		6ED084F51A454B5A0075FE21 /* GameKit */ = {
+			isa = PBXGroup;
+			children = (
+				6ED084F61A454B720075FE21 /* GameController.h */,
+				6ED084F71A454B720075FE21 /* GameController.m */,
+			);
+			name = GameKit;
+			sourceTree = "<group>";
+		};
 		6ED47CD51A42FB9C00CA1A8B /* Bonjour */ = {
 			isa = PBXGroup;
 			children = (
@@ -2136,6 +2151,7 @@
 				6ED4D6BF1A37216000EAA5EF /* FirstResponser */,
 				6EE7F4E01A4277CD009833F0 /* 基于地理位置的消息推送 */,
 				6ED47CD51A42FB9C00CA1A8B /* Bonjour */,
+				6ED084F51A454B5A0075FE21 /* GameKit */,
 				6ED629721A07499800106CE8 /* Main.storyboard */,
 				6ED629751A07499800106CE8 /* Images.xcassets */,
 				6ED629771A07499800106CE8 /* LaunchScreen.xib */,
@@ -2168,6 +2184,7 @@
 				6ED6D1441A10AEDF0036541E /* map.png */,
 				6ECBD3B61A0A5DF4009C3473 /* back.png */,
 				6ED62A931A085C2A00106CE8 /* libz.dylib */,
+				6ED084F31A454B230075FE21 /* GameKit.framework */,
 				6ECF22CE1A0A1B1A00B531A7 /* ImageIO.framework */,
 				6ED62A911A085C0E00106CE8 /* MobileCoreServices.framework */,
 				6ED62A8F1A085BFE00106CE8 /* CFNetwork.framework */,
@@ -4092,6 +4109,7 @@
 				6EF5C1F61A26A8120044318A /* GPUImageAlphaBlendFilter.m in Sources */,
 				6EF5C24C1A26A8120044318A /* GPUImageScreenBlendFilter.m in Sources */,
 				6EF5C2201A26A8120044318A /* GPUImageHarrisCornerDetectionFilter.m in Sources */,
+				6ED084F81A454B720075FE21 /* GameController.m in Sources */,
 				6EF5C2041A26A8120044318A /* GPUImageColorMatrixFilter.m in Sources */,
 				6EF5C2251A26A8120044318A /* GPUImageHueFilter.m in Sources */,
 			);

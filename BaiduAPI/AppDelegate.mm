@@ -37,6 +37,11 @@
     
 //    NSLog(@"ASI缓存目录 %@",cachePath);
     
+    //ios8注册消息通知
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }
+    
     return YES;
 }
 
@@ -56,9 +61,9 @@
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    NSLog(@"%@",notification.region);
+    NSLog(@"notification.region %@",notification.region);
     
-    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@",notification.alertBody] message:nil delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@ alert",notification.alertBody] message:nil delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
     [alert show];
 }
 

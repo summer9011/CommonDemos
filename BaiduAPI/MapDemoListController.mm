@@ -43,7 +43,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 15;
+    return 16;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -94,6 +94,9 @@
             break;
         case 14:
             cell.textLabel.text=@"Bonjour服务发现";
+            break;
+        case 15:
+            cell.textLabel.text=@"GameKit对等网络";
             break;
     }
     
@@ -150,6 +153,9 @@
             break;
         case 14:
             VC=[board instantiateViewControllerWithIdentifier:@"BonjourVC"];
+            break;
+        case 15:
+            VC=[board instantiateViewControllerWithIdentifier:@"GameVC"];
             break;
     }
     

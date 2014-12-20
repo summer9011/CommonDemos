@@ -7,12 +7,16 @@
 //
 
 #import "PushController.h"
-
+#import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface PushController () <CLLocationManagerDelegate>
+@interface PushController () <MKMapViewDelegate,CLLocationManagerDelegate>
 
-@property(nonatomic,strong)CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIButton *actionBtn;
+
+@property (nonatomic,strong) MKPointAnnotation *annotation;
+@property (nonatomic,strong) CLLocationManager *locationManager;
 
 @end
 
@@ -21,65 +25,55 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    self.positonLabel.text=@"0,0";
-    self.statusLabel.text=@"No";
-    
-    self.locationManager=[[CLLocationManager alloc] init];
-    
-    self.locationManager.delegate=self;
-    
-    if ([UIDevice currentDevice].systemVersion.floatValue>=8.0) {
-        [self.locationManager requestAlwaysAuthorization];       //始终定位
-    }
+    _locationManager=[[CLLocationManager alloc] init];
+    _locationManager.delegate=self;
+    [_locationManager requestWhenInUseAuthorization];
     
 }
 
--(void)initLocationNotify:(NSString *)msg {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue]>=8.0) {
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
-    }
-    
-    UILocalNotification *notify=[[UILocalNotification alloc] init];
-    notify.alertBody=msg;
-    notify.alertAction=msg;
-    notify.soundName=UILocalNotificationDefaultSoundName;
-    NSDictionary *info=[NSDictionary dictionaryWithObject:@"someValue" forKey:@"someKey"];
-    notify.userInfo=info;
-    
-    notify.regionTriggersOnce=NO;
-    
-    //29.83644036,+121.55019026
-    CLLocationCoordinate2D center;
-    center.latitude=29.83644036;
-    center.longitude=121.55019026;
-    CLLocationDistance radius;
-    radius=5;
-    notify.region=[[CLRegion alloc] initCircularRegionWithCenter:center radius:radius identifier:@"region"];
-    
-    [[UIApplication sharedApplication] scheduleLocalNotification:notify];
-}
-
-#pragma mark - CLLocationManagerDelegate
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    NSLog(@"locations %@",locations);
-}
-
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    if (status==kCLAuthorizationStatusAuthorizedAlways||status==kCLAuthorizationStatusAuthorizedWhenInUse) {
-        NSLog(@"开始监听");
-        [self initLocationNotify:@"inside"];
+- (IBAction)doPin:(UIButton *)sender {
+    if ([sender.titleLabel.text isEqualToString:@"Pin"]) {
+        
+        CLLocationCoordinate2D center;
+        center.latitude=29.85413151;
+        center.longitude=121.58188563;
+        
+        _annotation=[[MKPointAnnotation alloc] init];
+        _annotation.coordinate=_mapView.centerCoordinate=center;
+        [_mapView addAnnotation:_annotation];
+        
+        [sender setTitle:@"Notify" forState:UIControlStateNormal];
+        
+    }else if ([sender.titleLabel.text isEqualToString:@"Notify"]){
+        
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        
+        UILocalNotification *localNotify=[[UILocalNotification alloc] init];
+        localNotify.alertBody=@"you arrive here";
+        localNotify.regionTriggersOnce=true;
+        localNotify.region=[[CLCircularRegion alloc] initWithCenter:_annotation.coordinate radius:50 identifier:@"region"];
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotify];
+        
+        [sender setTitle:@"Cancel" forState:UIControlStateNormal];
+        
+    }else if ([sender.titleLabel.text isEqualToString:@"Cancel"]){
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        
+        [sender setTitle:@"Pin" forState:UIControlStateNormal];
     }
 }
 
-/*
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
-    [self initLocationNotify:@"inside"];
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    MKPinAnnotationView *pin=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"aaa"];
+    pin.animatesDrop=YES;
+    return pin;
 }
 
-- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
-    [self initLocationNotify:@"outside"];
+-(void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (status==kCLAuthorizationStatusAuthorizedWhenInUse) {
+        NSLog(@"ready to go");
+    }
 }
-*/
 
 @end
