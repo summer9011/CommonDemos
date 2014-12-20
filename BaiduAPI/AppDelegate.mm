@@ -61,9 +61,9 @@
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    NSLog(@"notification.region %@",notification.region);
+    NSString *msg=[NSString stringWithFormat:@"center(%f,%f) radius(%f)",notification.region.center.longitude,notification.region.center.latitude,notification.region.radius];
     
-    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@ alert",notification.alertBody] message:nil delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@ alert",notification.alertBody] message:msg delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
     [alert show];
 }
 
