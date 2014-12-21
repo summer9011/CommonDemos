@@ -59,6 +59,8 @@
 		6ED084F41A454B230075FE21 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED084F31A454B230075FE21 /* GameKit.framework */; };
 		6ED084F81A454B720075FE21 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED084F71A454B720075FE21 /* GameController.m */; };
 		6ED24D8A1A469D3700AD908D /* ClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED24D891A469D3700AD908D /* ClientController.m */; };
+		6ED24D901A46E80C00AD908D /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED24D8D1A46E80C00AD908D /* AsyncSocket.m */; };
+		6ED24D911A46E80C00AD908D /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED24D8F1A46E80C00AD908D /* AsyncUdpSocket.m */; };
 		6ED47CD81A42FBCE00CA1A8B /* BonjourController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED47CD71A42FBCE00CA1A8B /* BonjourController.m */; };
 		6ED4D6C21A3721B700EAA5EF /* ResponserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED4D6C11A3721B700EAA5EF /* ResponserController.m */; };
 		6ED6296B1A07499800106CE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6296A1A07499800106CE8 /* main.m */; };
@@ -891,6 +893,10 @@
 		6ED084F71A454B720075FE21 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 		6ED24D881A469D3700AD908D /* ClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientController.h; sourceTree = "<group>"; };
 		6ED24D891A469D3700AD908D /* ClientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientController.m; sourceTree = "<group>"; };
+		6ED24D8C1A46E80C00AD908D /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		6ED24D8D1A46E80C00AD908D /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		6ED24D8E1A46E80C00AD908D /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
+		6ED24D8F1A46E80C00AD908D /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
 		6ED47CD61A42FBCE00CA1A8B /* BonjourController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourController.h; sourceTree = "<group>"; };
 		6ED47CD71A42FBCE00CA1A8B /* BonjourController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourController.m; sourceTree = "<group>"; };
 		6ED4D6C01A3721B700EAA5EF /* ResponserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponserController.h; sourceTree = "<group>"; };
@@ -1953,12 +1959,13 @@
 		6E7BE7351A1C24B000268FE2 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				6ED24D8B1A46E7E000AD908D /* CocoaAsyncSocket */,
 				6EF5C0F11A26A7E70044318A /* GUPImageLib */,
 				6E94DCBE1A24531300DF285B /* NLCropImage */,
 				6ED6D1F31A12FEAE0036541E /* JCTiledScrollView */,
 				6E590B701A0C920300190F79 /* SDWebImage */,
 				6ED62A6F1A085BB800106CE8 /* ASIHttpRequest */,
-				6ED629AC1A07568200106CE8 /* BaiduInc */,
+				6ED629AC1A07568200106CE8 /* BaiduSDK */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -2096,13 +2103,24 @@
 			name = "GameKit对等网络";
 			sourceTree = "<group>";
 		};
-		6ED24D871A469D0800AD908D /* socket客户端 */ = {
+		6ED24D871A469D0800AD908D /* Socket客户端 */ = {
 			isa = PBXGroup;
 			children = (
 				6ED24D881A469D3700AD908D /* ClientController.h */,
 				6ED24D891A469D3700AD908D /* ClientController.m */,
 			);
-			name = "socket客户端";
+			name = "Socket客户端";
+			sourceTree = "<group>";
+		};
+		6ED24D8B1A46E7E000AD908D /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				6ED24D8C1A46E80C00AD908D /* AsyncSocket.h */,
+				6ED24D8D1A46E80C00AD908D /* AsyncSocket.m */,
+				6ED24D8E1A46E80C00AD908D /* AsyncUdpSocket.h */,
+				6ED24D8F1A46E80C00AD908D /* AsyncUdpSocket.m */,
+			);
+			name = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
 		6ED47CD51A42FB9C00CA1A8B /* Bonjour服务发现 */ = {
@@ -2164,7 +2182,7 @@
 				6EE7F4E01A4277CD009833F0 /* 基于地理位置的消息推送 */,
 				6ED47CD51A42FB9C00CA1A8B /* Bonjour服务发现 */,
 				6ED084F51A454B5A0075FE21 /* GameKit对等网络 */,
-				6ED24D871A469D0800AD908D /* socket客户端 */,
+				6ED24D871A469D0800AD908D /* Socket客户端 */,
 				6ED629721A07499800106CE8 /* Main.storyboard */,
 				6ED629751A07499800106CE8 /* Images.xcassets */,
 				6ED629771A07499800106CE8 /* LaunchScreen.xib */,
@@ -2234,7 +2252,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6ED629AC1A07568200106CE8 /* BaiduInc */ = {
+		6ED629AC1A07568200106CE8 /* BaiduSDK */ = {
 			isa = PBXGroup;
 			children = (
 				6ED629AD1A07568200106CE8 /* BMapKit.h */,
@@ -2299,7 +2317,7 @@
 				6ED629E81A07568200106CE8 /* BMKUtilsComponent.h */,
 				6ED629E91A07568200106CE8 /* BMKVersion.h */,
 			);
-			name = BaiduInc;
+			name = BaiduSDK;
 			path = inc;
 			sourceTree = SOURCE_ROOT;
 		};
@@ -4003,6 +4021,7 @@
 				6EF5C2411A26A8120044318A /* GPUImagePolkaDotFilter.m in Sources */,
 				6EF5C2301A26A8120044318A /* GPUImageMonochromeFilter.m in Sources */,
 				6EF5C26E1A26A8120044318A /* GPUImageXYDerivativeFilter.m in Sources */,
+				6ED24D901A46E80C00AD908D /* AsyncSocket.m in Sources */,
 				6EF5C2351A26A8120044318A /* GPUImageNobleCornerDetectionFilter.m in Sources */,
 				6EF5C2471A26A8120044318A /* GPUImageRGBDilationFilter.m in Sources */,
 				6EF5C1FA1A26A8120044318A /* GPUImageBrightnessFilter.m in Sources */,
@@ -4058,6 +4077,7 @@
 				6EF5C23F1A26A8120044318A /* GPUImagePixellateFilter.m in Sources */,
 				6EF5C2651A26A8120044318A /* GPUImageTwoPassFilter.m in Sources */,
 				6EF5C2581A26A8120044318A /* GPUImageSphereRefractionFilter.m in Sources */,
+				6ED24D911A46E80C00AD908D /* AsyncUdpSocket.m in Sources */,
 				6EF5C2631A26A8120044318A /* GPUImageTransformFilter.m in Sources */,
 				6EF5C25A1A26A8120044318A /* GPUImageStretchDistortionFilter.m in Sources */,
 				6EF5C1F91A26A8120044318A /* GPUImageBoxBlurFilter.m in Sources */,

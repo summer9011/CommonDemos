@@ -85,7 +85,7 @@
             cell.textLabel.text=@"GameKit对等网络";
             break;
         case 16:
-            cell.textLabel.text=@"socket客户端";
+            cell.textLabel.text=@"Socket客户端";
             break;
     }
     
