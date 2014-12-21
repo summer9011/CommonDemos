@@ -421,6 +421,24 @@
             </objects>
             <point key="canvasLocation" x="-629" y="3460"/>
         </scene>
+        <!--Socket客户端-->
+        <scene sceneID="IWc-3d-UaW">
+            <objects>
+                <viewController storyboardIdentifier="ClientVC" title="Socket客户端" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Oj-Pg-1z6" userLabel="Socket客户端" customClass="ClientController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5GQ-nV-31b"/>
+                        <viewControllerLayoutGuide type="bottom" id="s1E-3y-JfW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l2z-HS-p8t">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KFt-fx-JyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-629" y="4141"/>
+        </scene>
         <!--基于地理位置的消息推送-->
         <scene sceneID="KAh-oI-N55">
             <objects>

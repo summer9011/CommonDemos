@@ -53,7 +53,6 @@
         NSLog(@"连接");
         
         _picker=[[GKPeerPickerController alloc] init];
-        
         _picker.delegate=self;
         _picker.connectionTypesMask=GKPeerPickerConnectionTypeNearby;
         
@@ -61,8 +60,11 @@
     }else if ([sender.titleLabel.text isEqualToString:@"断开连接"]){
         NSLog(@"断开连接");
         
-        [_session disconnectPeerFromAllPeers:@"quit"];
+        [_session disconnectFromAllPeers];
         _session.delegate=nil;
+        
+        [self cleanUI];
+        
     }
     
 }
@@ -72,6 +74,12 @@
     _lblTimer.text=@"30s";
     _lblPlayer1.text=@"0";
     _lblPlayer2.text=@"0";
+    
+    [_timer invalidate];
+    _timeCount=30;
+    
+    _btnClick.enabled=NO;
+    [_btnConnect setTitle:@"连接" forState:UIControlStateNormal];
 }
 
 //更新计时器
@@ -90,8 +98,6 @@
 }
 
 -(void)receiveData:(NSData *)data fromPeer:(NSString *)peer inSession:(GKSession *)session context:(void *)context {
-    NSLog(@"从一个Peer接收到数据");
-    
     id jsonObj=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
     NSNumber *code=jsonObj[@"code"];
     if ([code intValue]==GAMIMG) {
@@ -108,11 +114,13 @@
 - (GKSession *)peerPickerController:(GKPeerPickerController *)picker sessionForConnectionType:(GKPeerPickerConnectionType)type {
     NSLog(@"搜索连接类型为：%d的设备",type);
     
-    return nil;
+    GKSession *session=[[GKSession alloc] initWithSessionID:@"ABC" displayName:@"JoinUs" sessionMode:GKSessionModePeer];
+    
+    return session;
 }
 
 - (void)peerPickerController:(GKPeerPickerController *)picker didConnectPeer:(NSString *)peerID toSession:(GKSession *)session {
-    NSLog(@"选择连接到某个Peer");
+    NSLog(@"选择连接到某个Peer: %@",peerID);
     
     _session=session;
     _session.delegate=self;
@@ -127,7 +135,7 @@
 }
 
 - (void)peerPickerControllerDidCancel:(GKPeerPickerController *)picker {
-    NSLog(@"peerPickerControllerDidCancel:");
+    NSLog(@"取消搜索");
     
     _picker.delegate=nil;
     _picker=nil;

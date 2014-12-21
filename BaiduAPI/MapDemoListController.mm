@@ -8,20 +8,6 @@
 
 #import "MapDemoListController.h"
 
-#import "LocationViewController.h"
-#import "ASICacheViewController.h"
-#import "ChangeColorController.h"
-#import "DownloadViewController.h"
-#import "WebViewController.h"
-#import "CustomMapController.h"
-#import "JCTiledViewController.h"
-#import "EXIFViewController.h"
-#import "HandleController.h"
-#import "ScrollPageController.h"
-#import "TableCellDeleteController.h"
-#import "MultiThreadController.h"
-#import "ResponserController.h"
-
 @interface MapDemoListController ()
 
 @end
@@ -43,7 +29,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 16;
+    return 17;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -97,6 +83,9 @@
             break;
         case 15:
             cell.textLabel.text=@"GameKit对等网络";
+            break;
+        case 16:
+            cell.textLabel.text=@"socket客户端";
             break;
     }
     
@@ -156,6 +145,9 @@
             break;
         case 15:
             VC=[board instantiateViewControllerWithIdentifier:@"GameVC"];
+            break;
+        case 16:
+            VC=[board instantiateViewControllerWithIdentifier:@"ClientVC"];
             break;
     }
     
