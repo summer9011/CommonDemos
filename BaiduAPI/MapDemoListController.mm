@@ -29,7 +29,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 17;
+    return 18;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -86,6 +86,9 @@
             break;
         case 16:
             cell.textLabel.text=@"Socket客户端";
+            break;
+        case 17:
+            cell.textLabel.text=@"指南针定位南北";
             break;
     }
     
@@ -148,6 +151,9 @@
             break;
         case 16:
             VC=[board instantiateViewControllerWithIdentifier:@"ClientVC"];
+            break;
+        case 17:
+            VC=[board instantiateViewControllerWithIdentifier:@"CompassVC"];
             break;
     }
     

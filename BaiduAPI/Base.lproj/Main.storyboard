@@ -573,6 +573,65 @@
             </objects>
             <point key="canvasLocation" x="14" y="3460"/>
         </scene>
+        <!--指南针陀螺仪-->
+        <scene sceneID="k0D-nl-Oua">
+            <objects>
+                <viewController storyboardIdentifier="CompassVC" title="指南针定位南北" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ty1-cz-rR6" userLabel="指南针陀螺仪" customClass="CompassController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PPj-XS-Jan"/>
+                        <viewControllerLayoutGuide type="bottom" id="KBO-y7-X5n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oXN-Ja-Xd0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nr7-zh-TIS">
+                                <rect key="frame" x="285" y="250" width="30" height="100"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EwT-RU-4cD">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="20"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="北" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fS-0p-pyK">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="5fS-0p-pyK" secondAttribute="trailing" id="0ik-Nw-Mlx"/>
+                                            <constraint firstItem="5fS-0p-pyK" firstAttribute="top" secondItem="EwT-RU-4cD" secondAttribute="top" id="0ve-Pl-wgE"/>
+                                            <constraint firstItem="5fS-0p-pyK" firstAttribute="leading" secondItem="EwT-RU-4cD" secondAttribute="leading" id="Qal-ku-GbL"/>
+                                            <constraint firstAttribute="height" constant="20" id="dmQ-xa-ysz"/>
+                                            <constraint firstAttribute="bottom" secondItem="5fS-0p-pyK" secondAttribute="bottom" id="pim-no-PdC"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="De7-Rz-luP"/>
+                                    <constraint firstItem="EwT-RU-4cD" firstAttribute="leading" secondItem="nr7-zh-TIS" secondAttribute="leading" id="HVz-N7-lrc"/>
+                                    <constraint firstAttribute="trailing" secondItem="EwT-RU-4cD" secondAttribute="trailing" id="Vqc-sD-Gew"/>
+                                    <constraint firstAttribute="width" constant="30" id="n4c-CT-edp"/>
+                                    <constraint firstItem="EwT-RU-4cD" firstAttribute="top" secondItem="nr7-zh-TIS" secondAttribute="top" id="pJ9-eo-g4O"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="nr7-zh-TIS" secondAttribute="centerX" id="5d3-ml-1ia"/>
+                            <constraint firstAttribute="centerY" secondItem="nr7-zh-TIS" secondAttribute="centerY" id="jlh-9d-chd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="headingView" destination="nr7-zh-TIS" id="62j-5e-aBS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IDl-fw-aFH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="14" y="4141"/>
+        </scene>
         <!--Bonjour服务发现-->
         <scene sceneID="IWR-Nz-7Th">
             <objects>

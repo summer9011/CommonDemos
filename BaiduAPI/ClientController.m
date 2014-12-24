@@ -42,6 +42,15 @@
 
 //Do connect to socketServer
 - (IBAction)doConnect:(id)sender {
+    NSError *error;
+    if (![asyncSocket connectToHost:@"192.168.1.104" onPort:8480 error:&error]) {
+        NSLog(@"Connect Error %@",error);
+    }else{
+        _connectBtn.enabled=NO;
+        _getListBtn.enabled=YES;
+    }
+    
+    /*
     if (_ipTF.text&&_portTF.text) {
         unsigned short port=[_portTF.text intValue];
         
@@ -53,11 +62,13 @@
             _getListBtn.enabled=YES;
         }
     }
+    */
 }
 
 //Do get available receiver list
 - (IBAction)doGetList:(id)sender {
-    
+    NSString *str=[NSString stringWithFormat:@"{\"code\":%d,\"msg\":\"%@\",\"clientid\":%d}",2,@"abc",0];
+    [asyncSocket writeData:[str dataUsingEncoding:NSUTF8StringEncoding] withTimeout:10 tag:1];
 }
 
 //Do send data to socketServer
