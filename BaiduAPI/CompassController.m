@@ -7,14 +7,10 @@
 //
 
 #import "CompassController.h"
-#import <CoreLocation/CoreLocation.h>
 
-#define degreesToRadians(x) (M_PI * x / 180.0)
+#import "CompassView.h"
 
-@interface CompassController () <CLLocationManagerDelegate>
-
-@property (nonatomic,strong) CLLocationManager *locationManager;
-@property (weak, nonatomic) IBOutlet UIView *headingView;
+@interface CompassController ()
 
 @end
 
@@ -23,28 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.locationManager=[[CLLocationManager alloc] init];
-    self.locationManager.delegate=self;
+    CGRect r=[UIScreen mainScreen].bounds;
     
-    NSLog(@"%d",[CLLocationManager headingAvailable]);
+    NSDictionary *center=@{};
     
-    if ([CLLocationManager headingAvailable]) {
-        self.locationManager.headingFilter=kCLHeadingFilterNone;
-        [self.locationManager startUpdatingHeading];
-    }
+    NSArray *destinationArr=@[];
     
-}
-
--(void) viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-
-#pragma mark - CLLocationManagerDelegate
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
-    //根据角度旋转图片 ，newHeading.magneticHeading为夹角
-    CGAffineTransform transform = CGAffineTransformMakeRotation(-1 * degreesToRadians(newHeading.magneticHeading));
-    self.headingView.transform = transform;
+    CompassView *compass=[[CompassView alloc] initWithFrame:CGRectMake(0, (r.size.height-r.size.width)/2.f-64, r.size.width, r.size.width) Center:center DestinationArray:destinationArr];
+    
+    [self.view addSubview:compass];
+    
 }
 
 @end

@@ -206,9 +206,9 @@ NSString *const kGPUImageToneCurveFragmentShaderString = SHADER_STRING
     if (points && [points count] > 0) 
     {
         // Sort the array.
-        NSArray *sortedPoints = [points sortedArrayUsingComparator:^(id a, id b) {
-            float x1 = [(NSValue *)a CGPointValue].x;
-            float x2 = [(NSValue *)b CGPointValue].x;            
+        NSArray *sortedPoints = [points sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            float x1 = [(NSValue *)obj1 CGPointValue].x;
+            float x2 = [(NSValue *)obj2 CGPointValue].x;
             return x1 > x2;
         }];
                 
