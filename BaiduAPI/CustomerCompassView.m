@@ -150,7 +150,6 @@
         name.text=destination[@"name"];
         
         double degrees=[self angleWithCenter:self.currentCenter Destination:destination];
-        
         double rotation=-1 * M_PI_2+degreesToRadians(degrees);
         
         self.compass1.transform=CGAffineTransformMakeRotation(rotation);
@@ -217,8 +216,6 @@
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
-    NSLog(@"%f",newHeading.magneticHeading);
-    
     self.compassBackView.transform = CGAffineTransformMakeRotation(-1 * degreesToRadians(newHeading.magneticHeading));
 }
 
