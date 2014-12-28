@@ -22,8 +22,10 @@
     
     NSDictionary *center=@{@"lat":@"29.85413151",@"long":@"121.58188563"};
     
-    //121.585618,29.86365
-    NSDictionary *destination1=@{@"lat":@"29.86365",@"long":@"121.585618",@"name":@"小普陀"};
+    //121.561764,29.863873
+    //121.582461,29.872642
+    //121.598702,29.869886
+    NSDictionary *destination1=@{@"lat":@"29.869886",@"long":@"121.598702",@"name":@"小普陀"};
     
     NSArray *destinationArr=@[destination1];
     
@@ -32,8 +34,8 @@
     
     [self.view addSubview:compass];
     
-    CLLocation *location=[[CLLocation alloc] initWithLatitude:29.85413151 longitude:121.58188563];
-    NSLog(@"%f",location.course);
+//    CLLocation *location=[[CLLocation alloc] initWithLatitude:29.85413151 longitude:121.58188563];
+//    NSLog(@"%f",location.course);
     
 }
 

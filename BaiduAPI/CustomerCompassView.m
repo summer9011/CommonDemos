@@ -11,6 +11,9 @@
 
 #define degreesToRadians(x) (M_PI * x / 180.0)
 
+#define Rc 6378137
+#define Rj 6356725
+
 @interface CustomerCompassView () <CLLocationManagerDelegate> {
     CGRect r;
 }
@@ -42,7 +45,6 @@
         [self initSelfView];
         [self setCompass];
         
-        /*
         self.locationManager=[[CLLocationManager alloc] init];
         self.locationManager.delegate=self;
         
@@ -50,7 +52,6 @@
             self.locationManager.headingFilter=kCLHeadingFilterNone;
             [self.locationManager startUpdatingHeading];
         }
-         */
     }
     return self;
 }
@@ -139,10 +140,8 @@
         destinationName.text=@"小普陀";
         [self.compass1 addSubview:destinationName];
         
+        //设置旋转中心点
         self.compass1.layer.anchorPoint=CGPointMake(0, 0.5);
-        
-        self.compass1.transform=CGAffineTransformMakeRotation(-1 * M_PI_2);
-        
     }
     
     UILabel *name=(UILabel *)[self.compass1 viewWithTag:103];
@@ -150,14 +149,13 @@
     for (NSDictionary *destination in self.currentDestinationArr) {
         name.text=destination[@"name"];
         
-        double diffLat=[self.currentCenter[@"lat"] doubleValue]-[destination[@"lat"] doubleValue];
-        double diffLong=[self.currentCenter[@"long"] doubleValue]-[destination[@"long"] doubleValue];
+        double degrees=[self angleWithCenter:self.currentCenter Destination:destination];
         
-        double degrees=atan(diffLong/diffLat);
-        NSLog(@"%f",degrees);
+        double rotation=-1 * M_PI_2+degreesToRadians(degrees);
         
-        //根据中心点旋转
+        self.compass1.transform=CGAffineTransformMakeRotation(rotation);
         
+        NSLog(@"degrees %f",degrees);
     }
     
 }
@@ -174,9 +172,53 @@
     
 }
 
+//计算2个经纬度与真北之间的夹角
+-(double)angleWithCenter:(NSDictionary *)center Destination:(NSDictionary *)destination {
+    //中心点的数据
+    double centerLat=[center[@"lat"] doubleValue];
+    double centerLong=[center[@"long"] doubleValue];
+    
+    double mCenterRadLa=centerLat*M_PI/180.f;
+    double mCenterRadLo=centerLong*M_PI/180.f;
+    
+    double centerEc=Rj+(Rc-Rj)*(90.f-centerLat)/90.f;
+    double centerEd=centerEc*cos(mCenterRadLa);
+    
+    //目标点的数据
+    double destinationLat=[destination[@"lat"] doubleValue];
+    double destinationLong=[destination[@"long"] doubleValue];
+    
+    double mDestinationRadLa=destinationLat*M_PI/180.f;
+    double mDestinationRadLo=destinationLong*M_PI/180.f;
+    
+    //计算destination相对于center的夹角
+    double dx=(mDestinationRadLo-mCenterRadLo)*centerEd;
+    double dy=(mDestinationRadLa-mCenterRadLa)*centerEc;
+    
+    double angle=0.f;
+    
+    angle=atan(fabs(dx/dy))*180.f/M_PI;
+    
+    double dLo=destinationLong-centerLong;
+    double dLa=destinationLat-centerLat;
+    
+    //计算象限
+    if (dLo>0&&dLa<=0) {
+        angle=(90.f-angle)+90;
+    }else if (dLo<=0&&dLa<0){
+        angle=angle+180;
+    }else if (dLo<0&&dLa>=0){
+        angle=(90.f-angle)+270;
+    }
+    
+    return angle;
+}
+
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
+    NSLog(@"%f",newHeading.magneticHeading);
+    
     self.compassBackView.transform = CGAffineTransformMakeRotation(-1 * degreesToRadians(newHeading.magneticHeading));
 }
 
