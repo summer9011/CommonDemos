@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CompassView : UIView
+@interface CustomerCompassView : UIView
 
 -(id)initWithFrame:(CGRect)frame Center:(NSDictionary *)center DestinationArray:(NSArray *) destinationArr;
 

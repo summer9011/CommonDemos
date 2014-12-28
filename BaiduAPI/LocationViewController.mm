@@ -7,6 +7,7 @@
 //
 
 #import "LocationViewController.h"
+#import "BMKLocationService.h"
 
 @interface LocationViewController ()
 
@@ -89,10 +90,12 @@ const double littleOffset=0.000001;
     span.latitude=maxScope.latitude-minScope.latitude;
     span.longitude=maxScope.longitude-minScope.longitude;
     
+    /*
     _mapView.centerCoordinate=centercoor;
     BMKCoordinateRegion region=BMKCoordinateRegionMake(_mapView.centerCoordinate, BMKCoordinateSpanMake(span.latitude, span.longitude));
     [_mapView setRegion:region animated:YES];
     [_mapView setMapCenterToScreenPt:CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2)];
+     */
 }
 
 /*

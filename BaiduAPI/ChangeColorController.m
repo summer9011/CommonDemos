@@ -25,21 +25,23 @@
     gradient.colors = [NSArray arrayWithObjects:(id)[UIColor redColor].CGColor,(id)[UIColor yellowColor].CGColor,(id)[UIColor greenColor].CGColor,nil];
     [_colorView.layer insertSublayer:gradient atIndex:0];
     
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)doRonate:(id)sender {
+    UIView *view=[[UIView alloc] initWithFrame:CGRectMake(150, 110, 30, 100)];
+    view.backgroundColor=[UIColor redColor];
+    [self.view addSubview:view];
+    
+    view.layer.anchorPoint=CGPointMake(0.5, 1);
+    
+    [UIView animateWithDuration:1 animations:^{
+        view.transform=CGAffineTransformMakeRotation(-1 * M_PI_2);
+    } completion:^(BOOL finished) {
+        [view removeFromSuperview];
+    }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

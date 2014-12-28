@@ -8,7 +8,8 @@
 
 #import "CompassController.h"
 
-#import "CompassView.h"
+#import "CustomerCompassView.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface CompassController ()
 
@@ -19,16 +20,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSDictionary *center=@{@"lat":@"29.85413151",@"long":@"121.58188563"};
+    
+    //121.585618,29.86365
+    NSDictionary *destination1=@{@"lat":@"29.86365",@"long":@"121.585618",@"name":@"小普陀"};
+    
+    NSArray *destinationArr=@[destination1];
+    
     CGRect r=[UIScreen mainScreen].bounds;
-    
-    NSDictionary *center=@{};
-    
-    NSArray *destinationArr=@[];
-    
-    CompassView *compass=[[CompassView alloc] initWithFrame:CGRectMake(0, (r.size.height-r.size.width)/2.f-64, r.size.width, r.size.width) Center:center DestinationArray:destinationArr];
+    CustomerCompassView *compass=[[CustomerCompassView alloc] initWithFrame:CGRectMake(0, 64, r.size.width, r.size.height) Center:center DestinationArray:destinationArr];
     
     [self.view addSubview:compass];
     
+    CLLocation *location=[[CLLocation alloc] initWithLatitude:29.85413151 longitude:121.58188563];
+    NSLog(@"%f",location.course);
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 @end
