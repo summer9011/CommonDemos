@@ -8,7 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CompassDelegate <NSObject>
+
+@required
+-(void)didClickOnOneCompass:(NSDictionary *)destination;
+
+@optional
+-(void)didShowCompassView;
+
+-(void)didHiddenCompassView;
+
+-(void)didReloadCompassView;
+
+-(void)didTapOnCompassView;
+
+@end
+
 @interface CustomerCompassView : UIView
+
+@property (nonatomic,strong) id<CompassDelegate> compassDelegate;
 
 -(id)initWithFrame:(CGRect)frame Center:(NSDictionary *)center DestinationArray:(NSArray *) destinationArr;
 

@@ -23,6 +23,8 @@
 @property (nonatomic,strong) NSMutableDictionary *currentCenter;
 @property (nonatomic,strong) NSMutableArray *currentDestinationArr;
 
+@property (nonatomic,strong) UIView *beiView;
+
 @property (nonatomic,strong) UIView *compassBackView;
 @property (nonatomic,strong) UIView *compass1;
 @property (nonatomic,strong) UIView *compass2;
@@ -66,19 +68,25 @@
 }
 
 -(void)initSelfView {
-    self.backgroundColor=[UIColor colorWithWhite:0.f alpha:0.3f];
+    self.alpha=0.f;
+    self.backgroundColor=[UIColor clearColor];
+    
+    self.beiView=[[UIView alloc] initWithFrame:CGRectMake(r.size.width-75, 15, 60, 60)];
+    [self addSubview:self.beiView];
+    
+    CGRect beiRect=self.beiView.frame;
     
     //"北"文字
-    UILabel *beiLabel=[[UILabel alloc] initWithFrame:CGRectMake(r.size.width-15, 5, 10, 10)];
+    UILabel *beiLabel=[[UILabel alloc] initWithFrame:CGRectMake(beiRect.size.width/2.f-8, 5, 20, 20)];
     beiLabel.text=@"北";
     beiLabel.textColor=[UIColor colorWithRed:126/255.f green:129/255.f blue:129/255.f alpha:1.f];
-    beiLabel.font=[UIFont systemFontOfSize:11];
-    [self addSubview:beiLabel];
+    beiLabel.font=[UIFont systemFontOfSize:16];
+    [self.beiView addSubview:beiLabel];
     
     //"北"箭头
     UIImageView *beiImage=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bei"]];
-    beiImage.frame=CGRectMake(r.size.width-15, 20, 10, 10);
-    [self addSubview:beiImage];
+    beiImage.frame=CGRectMake(beiRect.size.width/2.f-10, 27, 20, 28);
+    [self.beiView addSubview:beiImage];
     
     //设置指向View
     float x,y,edge;
@@ -94,81 +102,183 @@
     }
     
     self.compassBackView=[[UIView alloc] initWithFrame:CGRectMake(x, y, edge, edge)];
-    self.compassBackView.backgroundColor=[UIColor brownColor];
     [self addSubview:self.compassBackView];
     
+    //设置中心点
+    CGRect compassViewRect=self.compassBackView.frame;
+    UIImageView *centerPoint=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"zhongxin"]];
+    centerPoint.frame=CGRectMake(compassViewRect.size.width/2.f-10, compassViewRect.size.height/2.f-10, 20, 20);
+    [self.compassBackView addSubview:centerPoint];
+    
+    UITapGestureRecognizer *singleTap=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doSingleTap:)];
+    [self.compassBackView addGestureRecognizer:singleTap];
+    
+}
+
+-(void)doSingleTap:(UITapGestureRecognizer *)recognizer {
+    if ([self.compassDelegate respondsToSelector:@selector(didTapOnCompassView)]) {
+        [self.compassDelegate didTapOnCompassView];
+    }
 }
 
 //设置指向标
 -(void)setCompass {
-    CGRect compassViewRect=self.compassBackView.frame;
+    int i=1;
+    for (NSDictionary *destination in self.currentDestinationArr) {
+        switch (i) {
+            case 1:
+                [self initCompass:self.compass1 DestinationInfo:destination tagStart:100];
+                break;
+            case 2:
+                [self initCompass:self.compass2 DestinationInfo:destination tagStart:200];
+                break;
+            case 3:
+                [self initCompass:self.compass3 DestinationInfo:destination tagStart:300];
+                break;
+        }
+        i++;
+    }
     
-    //设置中心点
-    UIView *centerPoint=[[UIView alloc] initWithFrame:CGRectMake(compassViewRect.size.width/2.f-5, compassViewRect.size.height/2.f-5, 10, 10)];
-    centerPoint.backgroundColor=[UIColor yellowColor];
-    [self.compassBackView addSubview:centerPoint];
+}
+
+//初始化指向标
+-(void)initCompass:(UIView *)view DestinationInfo:(NSDictionary *)info tagStart:(int)tagStart {
+    CGRect compassViewRect=self.compassBackView.frame;
+    float offset=30;
     
     //设置指向箭头
-    if (!self.compass1) {
-        self.compass1=[[UIView alloc] initWithFrame:CGRectMake(compassViewRect.size.width/2.f-45, compassViewRect.size.height/2.f-30, 90, 60)];
-        self.compass1.backgroundColor=[UIColor blueColor];
-        [self.compassBackView addSubview:self.compass1];
+    if (!view) {
+        
+        view=[[UIView alloc] initWithFrame:CGRectMake((compassViewRect.size.width-90-offset)/2.f, compassViewRect.size.height/2.f-28.5, 90+offset, 57)];
+        view.tag=tagStart;
         
         //指向箭头的背景
-//        UIImageView *jiantou=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"jiantou"]];
-//        jiantou.frame=self.compass1.frame;
-//        [self.compass1 addSubview:jiantou];
+        UIImageView *jiantou=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"jiantou"]];
+        jiantou.frame=CGRectMake(offset, 0, 90, view.frame.size.height);
+        [view addSubview:jiantou];
         
         //指向箭头的状态
-        UIView *status=[[UIView alloc] initWithFrame:CGRectMake(10, 10, 20, 20)];
-        status.backgroundColor=[UIColor redColor];
-        status.tag=101;
-        [self.compass1 addSubview:status];
-
+        UIImageView *status=[[UIImageView alloc] initWithFrame:CGRectMake(6+offset, 13, 20, 12)];
+        status.tag=tagStart+1;
+        [view addSubview:status];
+        
         //设置距离
-        UILabel *miles=[[UILabel alloc] initWithFrame:CGRectMake(40, 10, 40, 20)];
-        miles.backgroundColor=[UIColor redColor];
-        miles.tag=102;
-        miles.text=@"100m";
-        miles.font=[UIFont systemFontOfSize:12];
-        [self.compass1 addSubview:miles];
+        UILabel *miles=[[UILabel alloc] initWithFrame:CGRectMake(28+offset, 13, 60, 15)];
+        miles.textColor=[UIColor colorWithRed:73/255.f green:76/255.f blue:77/255.f alpha:1.f];
+        miles.tag=tagStart+2;
+        miles.font=[UIFont systemFontOfSize:13];
+        [view addSubview:miles];
         
         //设置名字
-        UILabel *destinationName=[[UILabel alloc] initWithFrame:CGRectMake(10, 35, self.compass1.frame.size.width-20, 20)];
-        destinationName.backgroundColor=[UIColor redColor];
-        destinationName.tag=103;
-        destinationName.text=@"小普陀";
-        [self.compass1 addSubview:destinationName];
+        UILabel *destinationName=[[UILabel alloc] initWithFrame:CGRectMake(8+offset, 26, view.frame.size.width-20, 20)];
+        destinationName.textColor=[UIColor colorWithRed:28/255.f green:166/255.f blue:253/255.f alpha:1.f];
+        destinationName.tag=tagStart+3;
+        [view addSubview:destinationName];
         
-        //设置旋转中心点
-        self.compass1.layer.anchorPoint=CGPointMake(0, 0.5);
+        //点击事件
+        UIButton *button=[UIButton buttonWithType:UIButtonTypeSystem];
+        button.tag=tagStart+4;
+        button.frame=CGRectMake(offset, 0, 90, view.frame.size.height);
+        [button addTarget:self action:@selector(doClickOnCompass:) forControlEvents:UIControlEventTouchUpInside];
+        button.backgroundColor=[UIColor clearColor];
+        [view addSubview:button];
     }
     
-    UILabel *name=(UILabel *)[self.compass1 viewWithTag:103];
+    view.frame=CGRectMake((compassViewRect.size.width-90-offset)/2.f, compassViewRect.size.height/2.f-28.5, 90+offset, 57);
+    //设置旋转中心点
+    view.layer.anchorPoint=CGPointMake(0, 0.5);
     
-    for (NSDictionary *destination in self.currentDestinationArr) {
-        name.text=destination[@"name"];
-        
-        double degrees=[self angleWithCenter:self.currentCenter Destination:destination];
-        double rotation=-1 * M_PI_2+degreesToRadians(degrees);
-        
-        self.compass1.transform=CGAffineTransformMakeRotation(rotation);
-        
-        NSLog(@"degrees %f",degrees);
+    view.hidden=NO;
+    
+    [self.compassBackView addSubview:view];
+    
+    //上下坡状态
+    UIImageView *status=(UIImageView *)[view viewWithTag:tagStart+1];
+    if ([self.currentCenter[@"haiba"] doubleValue]>[info[@"haiba"] doubleValue]) {
+        status.image=[UIImage imageNamed:@"status_down"];
+    }else{
+        status.image=[UIImage imageNamed:@"status_up"];
     }
     
+    //center与destination之间的距离
+    UILabel *miles=(UILabel *)[view viewWithTag:tagStart+2];
+    CLLocation *center=[[CLLocation alloc] initWithLatitude:[self.currentCenter[@"lat"] doubleValue] longitude:[self.currentCenter[@"long"] doubleValue]];
+    CLLocation *destination=[[CLLocation alloc] initWithLatitude:[info[@"lat"] doubleValue] longitude:[info[@"long"] doubleValue]];
+    CLLocationDistance meters=[center distanceFromLocation:destination];
+    if (meters>1000) {
+        miles.text=[NSString stringWithFormat:@"%.2fkm",meters/1000];
+    }else{
+        miles.text=[NSString stringWithFormat:@"%dm",(int)meters];
+    }
+    
+    //目的地名字
+    UILabel *destinationName=(UILabel *)[view viewWithTag:tagStart+3];
+    destinationName.text=info[@"name"];
+    
+    double degrees=[self angleWithCenter:self.currentCenter Destination:info];
+    double rotation=-1 * M_PI_2+degreesToRadians(degrees);
+    
+    view.transform=CGAffineTransformMakeRotation(rotation);
+    
+    NSLog(@"degrees %f",degrees);
+}
+
+-(void)doClickOnCompass:(UIButton *)button {
+    if ([self.compassDelegate respondsToSelector:@selector(didClickOnOneCompass:)]) {
+        int index;
+        switch (button.tag) {
+            case 104:
+                index=0;
+                break;
+            case 204:
+                index=1;
+                break;
+            case 304:
+                index=2;
+                break;
+            default:
+                break;
+        }
+        
+        NSDictionary *destination=self.currentDestinationArr[index];
+        
+        [self.compassDelegate didClickOnOneCompass:destination];
+    }
 }
 
 -(void)show {
-    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.alpha=1.f;
+    } completion:^(BOOL finished) {
+        if ([self.compassDelegate respondsToSelector:@selector(didShowCompassView)]) {
+            [self.compassDelegate didShowCompassView];
+        }
+    }];
 }
 
 -(void)hidden {
-    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.alpha=0.f;
+    } completion:^(BOOL finished) {
+        if ([self.compassDelegate respondsToSelector:@selector(didHiddenCompassView)]) {
+            [self.compassDelegate didHiddenCompassView];
+        }
+    }];
 }
 
 -(void)reload {
+    UIView *view1=[self.compassBackView viewWithTag:100];
+    [view1 removeFromSuperview];
+    UIView *view2=[self.compassBackView viewWithTag:200];
+    [view2 removeFromSuperview];
+    UIView *view3=[self.compassBackView viewWithTag:300];
+    [view3 removeFromSuperview];
     
+    [self setCompass];
+    
+    if ([self.compassDelegate respondsToSelector:@selector(didReloadCompassView)]) {
+        [self.compassDelegate didReloadCompassView];
+    }
 }
 
 //计算2个经纬度与真北之间的夹角
@@ -217,6 +327,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
     self.compassBackView.transform = CGAffineTransformMakeRotation(-1 * degreesToRadians(newHeading.magneticHeading));
+    self.beiView.transform = CGAffineTransformMakeRotation(-1 * degreesToRadians(newHeading.magneticHeading));
 }
 
 @end
