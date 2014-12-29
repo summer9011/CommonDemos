@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E12063E1A517BD800C18A30 /* BLEController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E12063D1A517BD800C18A30 /* BLEController.m */; };
+		6E1206401A517D2300C18A30 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E12063F1A517D2300C18A30 /* CoreBluetooth.framework */; };
 		6E2C562D1A08A55E0049ED5A /* ChangeColorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C562C1A08A55E0049ED5A /* ChangeColorController.m */; };
 		6E48C5521A1B0C9B00637F37 /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E48C5501A1B0C9B00637F37 /* a.png */; };
 		6E48C5531A1B0C9B00637F37 /* b.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E48C5511A1B0C9B00637F37 /* b.png */; };
@@ -824,6 +826,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E12063C1A517BD800C18A30 /* BLEController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEController.h; sourceTree = "<group>"; };
+		6E12063D1A517BD800C18A30 /* BLEController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEController.m; sourceTree = "<group>"; };
+		6E12063F1A517D2300C18A30 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		6E2C562B1A08A55E0049ED5A /* ChangeColorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeColorController.h; sourceTree = "<group>"; };
 		6E2C562C1A08A55E0049ED5A /* ChangeColorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeColorController.m; sourceTree = "<group>"; };
 		6E48C5501A1B0C9B00637F37 /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a.png; sourceTree = "<group>"; };
@@ -1904,6 +1909,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E1206401A517D2300C18A30 /* CoreBluetooth.framework in Frameworks */,
 				6ECF22CF1A0A1B1A00B531A7 /* ImageIO.framework in Frameworks */,
 				6ED62A941A085C2A00106CE8 /* libz.dylib in Frameworks */,
 				6ED62A921A085C0E00106CE8 /* MobileCoreServices.framework in Frameworks */,
@@ -1929,6 +1935,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E12063B1A517BB600C18A30 /* BLE蓝牙技术 */ = {
+			isa = PBXGroup;
+			children = (
+				6E12063C1A517BD800C18A30 /* BLEController.h */,
+				6E12063D1A517BD800C18A30 /* BLEController.m */,
+			);
+			name = "BLE蓝牙技术";
+			sourceTree = "<group>";
+		};
 		6E590B701A0C920300190F79 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -2322,6 +2337,7 @@
 				6ED084F51A454B5A0075FE21 /* GameKit对等网络 */,
 				6ED24D871A469D0800AD908D /* Socket客户端 */,
 				6ED074CA1A4AF68E00D417BB /* 指南针定位南北 */,
+				6E12063B1A517BB600C18A30 /* BLE蓝牙技术 */,
 				6ED629721A07499800106CE8 /* Main.storyboard */,
 				6ED629751A07499800106CE8 /* Images.xcassets */,
 				6ED629771A07499800106CE8 /* LaunchScreen.xib */,
@@ -2353,6 +2369,7 @@
 				6ED6D1441A10AEDF0036541E /* map.png */,
 				6ECBD3B61A0A5DF4009C3473 /* back.png */,
 				6ED62A931A085C2A00106CE8 /* libz.dylib */,
+				6E12063F1A517D2300C18A30 /* CoreBluetooth.framework */,
 				6ED074CE1A4AF71600D417BB /* CoreMotion.framework */,
 				6ECF22CE1A0A1B1A00B531A7 /* ImageIO.framework */,
 				6ED62A911A085C0E00106CE8 /* MobileCoreServices.framework */,
@@ -4172,6 +4189,7 @@
 				6EF5C2631A26A8120044318A /* GPUImageTransformFilter.m in Sources */,
 				6EF5C25A1A26A8120044318A /* GPUImageStretchDistortionFilter.m in Sources */,
 				6EF5C1F91A26A8120044318A /* GPUImageBoxBlurFilter.m in Sources */,
+				6E12063E1A517BD800C18A30 /* BLEController.m in Sources */,
 				6ED6D21A1A12FEAE0036541E /* JCPDFTiledView.m in Sources */,
 				6ED6D2251A1301680036541E /* JCTiledViewController.m in Sources */,
 				6ED6D21C1A12FEAE0036541E /* JCTiledPDFScrollView.m in Sources */,

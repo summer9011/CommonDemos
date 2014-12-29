@@ -35,7 +35,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 18;
+    return 19;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -95,6 +95,9 @@
             break;
         case 17:
             cell.textLabel.text=@"指南针定位南北";
+            break;
+        case 18:
+            cell.textLabel.text=@"BLE蓝牙技术";
             break;
     }
     
@@ -160,6 +163,9 @@
             break;
         case 17:
             VC=[board instantiateViewControllerWithIdentifier:@"CompassVC"];
+            break;
+        case 18:
+            VC=[board instantiateViewControllerWithIdentifier:@"BLEVC"];
             break;
     }
     

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBV-de-5KM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBV-de-5KM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -581,6 +581,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDl-fw-aFH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="14" y="4141"/>
+        </scene>
+        <!--BLE蓝牙技术-->
+        <scene sceneID="SIC-i7-gLy">
+            <objects>
+                <viewController storyboardIdentifier="BLEVC" title="BLE蓝牙技术" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gJ6-ZC-EqM" customClass="BLEController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cwX-5V-p4F"/>
+                        <viewControllerLayoutGuide type="bottom" id="4sm-Me-Rdx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wVa-VP-QGI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doh-58-Q7i">
+                                <rect key="frame" x="325" y="40" width="60" height="30"/>
+                                <state key="normal" title="成为外设">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickBePeripheral:" destination="gJ6-ZC-EqM" eventType="touchUpInside" id="pLF-4c-lws"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0V-r2-yeM">
+                                <rect key="frame" x="235" y="40" width="60" height="30"/>
+                                <state key="normal" title="成为中心">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickBeCenter:" destination="gJ6-ZC-EqM" eventType="touchUpInside" id="zpP-jR-TGV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="L0V-r2-yeM" firstAttribute="top" secondItem="doh-58-Q7i" secondAttribute="top" id="3pr-Q4-H4Q"/>
+                            <constraint firstItem="L0V-r2-yeM" firstAttribute="height" secondItem="doh-58-Q7i" secondAttribute="height" id="FRd-Xv-JXa"/>
+                            <constraint firstItem="doh-58-Q7i" firstAttribute="leading" secondItem="L0V-r2-yeM" secondAttribute="trailing" constant="30" id="P0v-s8-Aon"/>
+                            <constraint firstItem="L0V-r2-yeM" firstAttribute="top" secondItem="cwX-5V-p4F" secondAttribute="bottom" constant="20" id="b35-TN-FPE"/>
+                            <constraint firstAttribute="centerX" secondItem="L0V-r2-yeM" secondAttribute="centerX" constant="35" id="bgv-IV-Hx8"/>
+                            <constraint firstItem="L0V-r2-yeM" firstAttribute="width" secondItem="doh-58-Q7i" secondAttribute="width" id="nxI-0q-fdM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="beCenter" destination="L0V-r2-yeM" id="WPV-4z-R4k"/>
+                        <outlet property="bePeripheral" destination="doh-58-Q7i" id="juz-0h-Gsi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="65L-7a-PlK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="660" y="4141"/>
         </scene>
         <!--Bonjour服务发现-->
         <scene sceneID="IWR-Nz-7Th">
