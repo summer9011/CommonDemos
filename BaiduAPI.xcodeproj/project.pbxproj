@@ -3402,7 +3402,7 @@
 				TargetAttributes = {
 					6ED629641A07499800106CE8 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 8B3JGQL9SK;
+						DevelopmentTeam = RSXSFANAY7;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -3417,7 +3417,7 @@
 					};
 					6ED6297D1A07499800106CE8 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 8B3JGQL9SK;
+						DevelopmentTeam = RSXSFANAY7;
 						TestTargetID = 6ED629641A07499800106CE8;
 					};
 				};
