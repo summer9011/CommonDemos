@@ -18,11 +18,16 @@
 @property (nonatomic,strong) CBCentralManager *centralManager;
 @property (nonatomic,strong) CBPeripheral *peripheral;
 @property (nonatomic,strong) NSMutableData *data;
+@property (weak, nonatomic) IBOutlet UIButton *centralDisconnect;
 
 
 @property (nonatomic,strong) CBPeripheralManager *peripheralManager;
 @property (nonatomic,strong) CBMutableCharacteristic *customCharacteristic;
 @property (nonatomic,strong) CBMutableService *customService;
+@property (nonatomic,strong) CBCentral *receiverCentral;
+@property (weak, nonatomic) IBOutlet UIButton *sendDataBtn;
+
+@property (nonatomic,assign) int count;
 
 @end
 
@@ -33,6 +38,8 @@ static NSString * const kCharacteristicUUID=@"6CDF1ACA-9931-4038-B438-DFEC4066F2
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.count=0;
 }
 
 //成为中心
@@ -40,12 +47,30 @@ static NSString * const kCharacteristicUUID=@"6CDF1ACA-9931-4038-B438-DFEC4066F2
     [self unabled];
     self.centralManager=[[CBCentralManager alloc] initWithDelegate:self queue:nil];
     
+    self.centralDisconnect.enabled=YES;
 }
 
 //成为外设
 - (IBAction)clickBePeripheral:(id)sender {
     [self unabled];
     self.peripheralManager=[[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
+}
+
+//外设发送数据
+- (IBAction)peripheraManagerSendData:(id)sender {
+    self.count++;
+    NSLog(@"%d",self.count);
+    
+    NSString *str=[NSString stringWithFormat:@"%d",self.count];
+    [self.peripheralManager updateValue:[str dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.customCharacteristic onSubscribedCentrals:@[self.receiverCentral]];
+}
+
+//中央断开与周边连接
+- (IBAction)centralDisconnectAll:(id)sender {
+    [self.centralManager cancelPeripheralConnection:self.peripheral];
+    
+    self.beCenter.enabled=YES;
+    self.centralDisconnect.enabled=NO;
 }
 
 -(void)unabled {
@@ -70,12 +95,10 @@ static NSString * const kCharacteristicUUID=@"6CDF1ACA-9931-4038-B438-DFEC4066F2
 #pragma mark - CBCentralManagerDelegate
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
-    NSLog(@"中心更新蓝牙状态: %ld",central.state);
-    
     switch (central.state) {
         case CBCentralManagerStatePoweredOn:
             //搜寻所有的服务
-            [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:kServiceUUID]] options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@"YES"}];
+            [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:kServiceUUID]] options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}];
             break;
             
         default:
@@ -85,25 +108,16 @@ static NSString * const kCharacteristicUUID=@"6CDF1ACA-9931-4038-B438-DFEC4066F2
     }
 }
 
-- (void)centralManager:(CBCentralManager *)central willRestoreState:(NSDictionary *)dict {
-    NSLog(@"centralManager:willRestoreState:");
-}
-
-- (void)centralManager:(CBCentralManager *)central didRetrievePeripherals:(NSArray *)peripherals {
-    NSLog(@"centralManager:didRetrievePeripherals:");
-}
-
-- (void)centralManager:(CBCentralManager *)central didRetrieveConnectedPeripherals:(NSArray *)peripherals {
-    NSLog(@"centralManager:didRetrieveConnectedPeripherals:");
-}
-
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
-    NSLog(@"发现外设:%@",peripheral);
+    NSLog(@"搜索外设");
+    
     if (self.peripheral!=peripheral) {
         self.peripheral=peripheral;
         
         NSLog(@"连接到外设:%@",peripheral);
         [self.centralManager connectPeripheral:peripheral options:nil];
+        
+        [self.centralManager stopScan];
     }
 }
 
@@ -128,28 +142,11 @@ static NSString * const kCharacteristicUUID=@"6CDF1ACA-9931-4038-B438-DFEC4066F2
 
 #pragma mark - CBPeripheralDelegate
 
-- (void)peripheralDidUpdateName:(CBPeripheral *)peripheral {
-    NSLog(@"peripheralDidUpdateName:");
-}
-
-- (void)peripheralDidInvalidateServices:(CBPeripheral *)peripheral {
-    NSLog(@"peripheralDidInvalidateServices:");
-}
-
 - (void)peripheral:(CBPeripheral *)peripheral didModifyServices:(NSArray *)invalidatedServices {
-    NSLog(@"peripheral:didModifyServices:");
-}
-
-- (void)peripheralDidUpdateRSSI:(CBPeripheral *)peripheral error:(NSError *)error {
-    NSLog(@"peripheralDidUpdateRSSI:error:");
-}
-
-- (void)peripheral:(CBPeripheral *)peripheral didReadRSSI:(NSNumber *)RSSI error:(NSError *)error {
-    NSLog(@"peripheral:didReadRSSI:error:");
+    NSLog(@"外设修改了服务 :%@",invalidatedServices);
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
-    NSLog(@"外设找到了自己提供的服务 错误%@",error);
     if (error) {
         NSLog(@"Error discovering service :%@",[error localizedDescription]);
     }
@@ -160,10 +157,6 @@ static NSString * const kCharacteristicUUID=@"6CDF1ACA-9931-4038-B438-DFEC4066F2
             [service.peripheral discoverCharacteristics:@[[CBUUID UUIDWithString:kCharacteristicUUID]] forService:service];
         }
     }
-}
-
-- (void)peripheral:(CBPeripheral *)peripheral didDiscoverIncludedServicesForService:(CBService *)service error:(NSError *)error {
-    NSLog(@"peripheral:didDiscoverIncludedServicesForService:error:");
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
@@ -182,16 +175,22 @@ static NSString * const kCharacteristicUUID=@"6CDF1ACA-9931-4038-B438-DFEC4066F2
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
+    
     NSLog(@"外设更新了特征 %@ 的值",characteristic);
     if (![characteristic.UUID isEqual:[CBUUID UUIDWithString:kCharacteristicUUID]]) {
         return;
     }
     
     [self.data appendData:characteristic.value];
-}
-
-- (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-    NSLog(@"peripheral:didWriteValueForCharacteristic:error:");
+    
+    NSString *data=[[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@",data);
+    if (data&&![data isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Data值" message:data delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
@@ -213,23 +212,9 @@ static NSString * const kCharacteristicUUID=@"6CDF1ACA-9931-4038-B438-DFEC4066F2
     }
 }
 
-- (void)peripheral:(CBPeripheral *)peripheral didDiscoverDescriptorsForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-    NSLog(@"peripheral:didDiscoverDescriptorsForCharacteristic:error:");
-}
-
-- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForDescriptor:(CBDescriptor *)descriptor error:(NSError *)error {
-    NSLog(@"peripheral:didUpdateValueForDescriptor:error:");
-}
-
-- (void)peripheral:(CBPeripheral *)peripheral didWriteValueForDescriptor:(CBDescriptor *)descriptor error:(NSError *)error {
-    NSLog(@"peripheral:didWriteValueForDescriptor:error:");
-}
-
 #pragma mark - CBPeripheralManagerDelegate
 
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
-    NSLog(@"外设更新蓝牙状态: %ld",peripheral.state);
-    
     switch (peripheral.state) {
         case CBPeripheralManagerStatePoweredOn:
             [self setupService];
@@ -237,13 +222,8 @@ static NSString * const kCharacteristicUUID=@"6CDF1ACA-9931-4038-B438-DFEC4066F2
             
         default:
             NSLog(@"peripheral manager should change state");
-            
             break;
     }
-}
-
-- (void)peripheralManager:(CBPeripheralManager *)peripheral willRestoreState:(NSDictionary *)dict {
-    NSLog(@"peripheralManager:willRestoreState:");
 }
 
 - (void)peripheralManagerDidStartAdvertising:(CBPeripheralManager *)peripheral error:(NSError *)error {
@@ -260,23 +240,11 @@ static NSString * const kCharacteristicUUID=@"6CDF1ACA-9931-4038-B438-DFEC4066F2
 }
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic {
-    NSLog(@"peripheralManager:central:didSubscribeToCharacteristic:");
-}
-
-- (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didUnsubscribeFromCharacteristic:(CBCharacteristic *)characteristic {
-    NSLog(@"peripheralManager:central:didUnsubscribeFromCharacteristic:");
-}
-
-- (void)peripheralManager:(CBPeripheralManager *)peripheral didReceiveReadRequest:(CBATTRequest *)request {
-    NSLog(@"peripheralManager:didReceiveReadRequest:");
-}
-
-- (void)peripheralManager:(CBPeripheralManager *)peripheral didReceiveWriteRequests:(NSArray *)requests {
-    NSLog(@"peripheralManager:didReceiveWriteRequests:");
-}
-
-- (void)peripheralManagerIsReadyToUpdateSubscribers:(CBPeripheralManager *)peripheral {
-    NSLog(@"peripheralManagerIsReadyToUpdateSubscribers:");
+    NSLog(@"中央预定该服务");
+    
+    self.receiverCentral=central;
+    
+    self.sendDataBtn.enabled=YES;
 }
 
 @end

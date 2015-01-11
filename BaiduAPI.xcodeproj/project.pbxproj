@@ -71,6 +71,7 @@
 		6ECBD3B71A0A5DF4009C3473 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ECBD3B61A0A5DF4009C3473 /* back.png */; };
 		6ECBD3BD1A0A6AE0009C3473 /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECBD3BC1A0A6AE0009C3473 /* DownloadViewController.m */; };
 		6ECC3B8D1A3444D2000DAEF2 /* daa.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ECC3B8C1A3444D2000DAEF2 /* daa.png */; };
+		6ECC54591A5C1360004163BC /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ECC54581A5C1360004163BC /* CoreMIDI.framework */; };
 		6ECCC50B1A257CE800B2442B /* corner.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ECCC50A1A257CE800B2442B /* corner.png */; };
 		6ECF22CF1A0A1B1A00B531A7 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ECF22CE1A0A1B1A00B531A7 /* ImageIO.framework */; };
 		6ECFF8741A4F9C3D00D61D57 /* CustomerCompassView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECFF8731A4F9C3D00D61D57 /* CustomerCompassView.m */; };
@@ -922,6 +923,7 @@
 		6ECBD3BB1A0A6AE0009C3473 /* DownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
 		6ECBD3BC1A0A6AE0009C3473 /* DownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
 		6ECC3B8C1A3444D2000DAEF2 /* daa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = daa.png; sourceTree = "<group>"; };
+		6ECC54581A5C1360004163BC /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		6ECCC50A1A257CE800B2442B /* corner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corner.png; sourceTree = "<group>"; };
 		6ECF22CE1A0A1B1A00B531A7 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		6ECFF8721A4F9C3D00D61D57 /* CustomerCompassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCompassView.h; sourceTree = "<group>"; };
@@ -1909,6 +1911,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ECC54591A5C1360004163BC /* CoreMIDI.framework in Frameworks */,
 				6E1206401A517D2300C18A30 /* CoreBluetooth.framework in Frameworks */,
 				6ECF22CF1A0A1B1A00B531A7 /* ImageIO.framework in Frameworks */,
 				6ED62A941A085C2A00106CE8 /* libz.dylib in Frameworks */,
@@ -2369,6 +2372,7 @@
 				6ED6D1441A10AEDF0036541E /* map.png */,
 				6ECBD3B61A0A5DF4009C3473 /* back.png */,
 				6ED62A931A085C2A00106CE8 /* libz.dylib */,
+				6ECC54581A5C1360004163BC /* CoreMIDI.framework */,
 				6E12063F1A517D2300C18A30 /* CoreBluetooth.framework */,
 				6ED074CE1A4AF71600D417BB /* CoreMotion.framework */,
 				6ECF22CE1A0A1B1A00B531A7 /* ImageIO.framework */,

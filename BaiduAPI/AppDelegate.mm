@@ -72,12 +72,7 @@
  *@param iError 错误号
  */
 - (void)onGetNetworkState:(int)iError {
-    if (iError == 0) {
-//        NSLog(@"联网成功");
-    }
-    else{
-        NSLog(@"onGetNetworkState %d",iError);
-    }
+    NSLog(@"onGetNetworkState %d",iError);
 }
 
 /**
@@ -85,12 +80,7 @@
  *@param iError 错误号 : 为0时验证通过，具体参加BMKPermissionCheckResultCode
  */
 - (void)onGetPermissionState:(int)iError {
-    if (iError == 0) {
-//        NSLog(@"授权成功");
-    }
-    else {
-        NSLog(@"onGetPermissionState %d",iError);
-    }
+    NSLog(@"onGetPermissionState %d",iError);
 }
 
 @end

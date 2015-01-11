@@ -612,20 +612,52 @@
                                     <action selector="clickBeCenter:" destination="gJ6-ZC-EqM" eventType="touchUpInside" id="zpP-jR-TGV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3w-HB-FwV">
+                                <rect key="frame" x="340" y="100" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="GB7-gE-rcH"/>
+                                    <constraint firstAttribute="height" constant="30" id="Leb-Dw-RaE"/>
+                                </constraints>
+                                <state key="normal" title="发送">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="peripheraManagerSendData:" destination="gJ6-ZC-EqM" eventType="touchUpInside" id="I1Y-5J-mqM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glp-ve-hcv">
+                                <rect key="frame" x="255" y="210" width="90" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="nv0-BS-ZBL"/>
+                                    <constraint firstAttribute="height" constant="30" id="xfS-Y6-nyM"/>
+                                </constraints>
+                                <state key="normal" title="中心断开连接">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="centralDisconnectAll:" destination="gJ6-ZC-EqM" eventType="touchUpInside" id="wQL-wp-pwS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="L0V-r2-yeM" firstAttribute="top" secondItem="doh-58-Q7i" secondAttribute="top" id="3pr-Q4-H4Q"/>
                             <constraint firstItem="L0V-r2-yeM" firstAttribute="height" secondItem="doh-58-Q7i" secondAttribute="height" id="FRd-Xv-JXa"/>
                             <constraint firstItem="doh-58-Q7i" firstAttribute="leading" secondItem="L0V-r2-yeM" secondAttribute="trailing" constant="30" id="P0v-s8-Aon"/>
+                            <constraint firstItem="C3w-HB-FwV" firstAttribute="centerX" secondItem="doh-58-Q7i" secondAttribute="centerX" id="Sfe-dw-mz2"/>
+                            <constraint firstItem="C3w-HB-FwV" firstAttribute="top" secondItem="doh-58-Q7i" secondAttribute="bottom" constant="30" id="Wcj-IL-eSO"/>
+                            <constraint firstItem="glp-ve-hcv" firstAttribute="top" secondItem="C3w-HB-FwV" secondAttribute="bottom" constant="80" id="XF3-M8-2zp"/>
                             <constraint firstItem="L0V-r2-yeM" firstAttribute="top" secondItem="cwX-5V-p4F" secondAttribute="bottom" constant="20" id="b35-TN-FPE"/>
                             <constraint firstAttribute="centerX" secondItem="L0V-r2-yeM" secondAttribute="centerX" constant="35" id="bgv-IV-Hx8"/>
+                            <constraint firstAttribute="centerX" secondItem="glp-ve-hcv" secondAttribute="centerX" id="mOR-fS-l4i"/>
                             <constraint firstItem="L0V-r2-yeM" firstAttribute="width" secondItem="doh-58-Q7i" secondAttribute="width" id="nxI-0q-fdM"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="beCenter" destination="L0V-r2-yeM" id="WPV-4z-R4k"/>
                         <outlet property="bePeripheral" destination="doh-58-Q7i" id="juz-0h-Gsi"/>
+                        <outlet property="centralDisconnect" destination="glp-ve-hcv" id="fcz-CM-I4B"/>
+                        <outlet property="sendDataBtn" destination="C3w-HB-FwV" id="KzN-Ri-NqF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65L-7a-PlK" userLabel="First Responder" sceneMemberID="firstResponder"/>
