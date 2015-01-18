@@ -9,7 +9,9 @@
 #import "ClientController.h"
 #import "AsyncSocket.h"
 
-#define IP @"192.168.1.103"
+#import <AudioToolbox/AudioToolbox.h>
+
+#define IP @"192.168.1.101"
 #define PORT 8480
 
 @interface ClientController () <AsyncSocketDelegate,UITableViewDataSource,UITableViewDelegate> {
@@ -25,6 +27,8 @@
     UITextView *msgView;
     
     int tmpCount;
+    
+    SystemSoundID soundID;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *IPText;
@@ -149,6 +153,24 @@
     tmpCount=0;
 }
 
+//播放音效
+-(void)playSound:(NSString *)latter {
+    NSString *path = [[NSBundle mainBundle] pathForResource:latter ofType:@"wav"];
+    if (path) {
+        SystemSoundID theSoundID;
+        OSStatus error =  AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path], &theSoundID);
+        if (error == kAudioServicesNoError) {
+            soundID = theSoundID;
+        }else {
+            NSLog(@"Failed to create sound ");
+        }
+    }else{
+        NSLog(@"no wav file :%@",latter);
+    }
+    
+    AudioServicesPlaySystemSound(soundID);
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -220,60 +242,75 @@
     [heartBeatTimer fire];
 }
 
+- (void)onSocket:(AsyncSocket *)sock didReadPartialDataOfLength:(NSUInteger)partialLength tag:(long)tag{
+    NSLog(@"onSocket:didReadPartialDataOfLength:tag:");
+}
+
 - (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
     NSString *str=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",str);
+    NSArray *tempArr=[str componentsSeparatedByString:@"\n"];
     
-    NSError *error;
-    NSDictionary *dic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+    NSMutableArray *strArr=[tempArr mutableCopy];
+    [strArr removeLastObject];
     
-    switch ([dic[@"code"] intValue]) {
-        case 1:             //获取欢迎
-            ownerID=dic[@"currentid"];
-            
-            break;
-        case 2:{            //获取用户列表
-            dic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
-            NSArray *arr=[NSJSONSerialization JSONObjectWithData:[dic[@"msg"] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
-            
-            [userList removeAllObjects];
-            [userList addObjectsFromArray:arr];
-            
-            [self.receiverList reloadData];
-        }
-            break;
-            
-        case 3:             //心跳检测
-            break;
-        case 4:{            //建立聊天窗口
-            if (dic[@"from"]) {
-                [recevierList removeAllObjects];
-                [recevierList addObject:[NSString stringWithFormat:@"%@",dic[@"from"]]];
+    for (NSString *str in strArr) {
+        NSLog(@"%@",str);
+        NSError *error;
+        NSDictionary *dic=[NSJSONSerialization JSONObjectWithData:[str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves error:&error];
+        
+        switch ([dic[@"code"] intValue]) {
+            case 1:             //获取欢迎
+                ownerID=dic[@"currentid"];
+                
+                break;
+            case 2:{            //获取用户列表
+                dic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+                NSArray *arr=[NSJSONSerialization JSONObjectWithData:[dic[@"msg"] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+                
+                [userList removeAllObjects];
+                [userList addObjectsFromArray:arr];
+                
+                [self.receiverList reloadData];
             }
-            
-            [self initSendDataView];
-        }
-            break;
-        case 5:{            //发送数据
-            NSString *oldStr=msgView.text;
-            if ([oldStr isEqualToString:@""]) {
-                msgView.text=dic[@"msg"];
-            }else{
-                msgView.text=[NSString stringWithFormat:@"%@,%@",oldStr,dic[@"msg"]];
+                break;
+                
+            case 3:             //心跳检测
+                break;
+            case 4:{            //建立聊天窗口
+                if (dic[@"from"]) {
+                    [recevierList removeAllObjects];
+                    [recevierList addObject:[NSString stringWithFormat:@"%@",dic[@"from"]]];
+                }
+                
+                [self initSendDataView];
             }
-            
-        }
-            break;
-        case 6:{            //一方退出
-            if (dic[@"clientid"]) {
-                UIAlertView *alert=[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"ID:%@ 已退出",dic[@"clientid"]] message:@"队友都走了，你还留着干什么？" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
-                alert.delegate=self;
-                [alert show];
+                break;
+            case 5:{            //发送数据
+                NSDate *current=[NSDate date];
+                double diff=current.timeIntervalSince1970-[dic[@"clickTime"] doubleValue];
+                
+                NSString *oldStr=msgView.text;
+                if ([oldStr isEqualToString:@""]) {
+                    msgView.text=[NSString stringWithFormat:@"(%@,%f)",dic[@"msg"],diff];
+                }else{
+                    msgView.text=[NSString stringWithFormat:@"%@;(%@,%f)",oldStr,dic[@"msg"],diff];
+                }
+                [self playSound:dic[@"msg"]];
             }
-            
+                break;
+            case 6:{            //一方退出
+                if (dic[@"clientid"]) {
+                    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"ID:%@ 已退出",dic[@"clientid"]] message:@"队友都走了，你还留着干什么？" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+                    alert.delegate=self;
+                    [alert show];
+                }
+                
+            }
+                break;
         }
-            break;
     }
+    
+    
     
     [sock readDataWithTimeout:-1 tag:tag];
 }
