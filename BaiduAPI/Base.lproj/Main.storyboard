@@ -664,6 +664,43 @@
             </objects>
             <point key="canvasLocation" x="660" y="4141"/>
         </scene>
+        <!--FMOD播放MIDI-->
+        <scene sceneID="b3W-I8-oxg">
+            <objects>
+                <viewController storyboardIdentifier="FMODVC" title="FMOD播放MIDI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uun-Lp-jh8" customClass="FMODController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WDN-as-rfd"/>
+                        <viewControllerLayoutGuide type="bottom" id="MOh-Sl-1UZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fcI-wO-EDA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCS-oj-wqe">
+                                <rect key="frame" x="285" y="285" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DYf-77-lKY"/>
+                                    <constraint firstAttribute="width" constant="30" id="LhL-co-uS1"/>
+                                </constraints>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doPlayMIDI:" destination="uun-Lp-jh8" eventType="touchUpInside" id="KSq-if-A0B"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="hCS-oj-wqe" secondAttribute="centerX" id="3rM-GO-eFr"/>
+                            <constraint firstAttribute="centerY" secondItem="hCS-oj-wqe" secondAttribute="centerY" id="SsS-0T-9ao"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I8A-mz-YQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1304" y="4141"/>
+        </scene>
         <!--Bonjour服务发现-->
         <scene sceneID="IWR-Nz-7Th">
             <objects>

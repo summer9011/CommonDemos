@@ -35,7 +35,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 19;
+    return 20;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -98,6 +98,9 @@
             break;
         case 18:
             cell.textLabel.text=@"BLE蓝牙技术";
+            break;
+        case 19:
+            cell.textLabel.text=@"FMOD播放MIDI";
             break;
     }
     
@@ -166,6 +169,9 @@
             break;
         case 18:
             VC=[board instantiateViewControllerWithIdentifier:@"BLEVC"];
+            break;
+        case 19:
+            VC=[board instantiateViewControllerWithIdentifier:@"FMODVC"];
             break;
     }
     

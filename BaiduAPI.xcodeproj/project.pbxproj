@@ -78,10 +78,17 @@
 		6ECFF8EE1A4FBD0600D61D57 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ECFF8EC1A4FBD0600D61D57 /* libbaidumapapi.a */; };
 		6ECFF8EF1A4FBD0600D61D57 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6ECFF8ED1A4FBD0600D61D57 /* mapapi.bundle */; };
 		6ED074CD1A4AF6B300D417BB /* CompassController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED074CC1A4AF6B300D417BB /* CompassController.m */; };
+		6ED075DB1A750A5000DEC1FD /* gm.dls in Resources */ = {isa = PBXBuildFile; fileRef = 6ED075DA1A750A5000DEC1FD /* gm.dls */; };
 		6ED084F81A454B720075FE21 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED084F71A454B720075FE21 /* GameController.m */; };
 		6ED24D8A1A469D3700AD908D /* ClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED24D891A469D3700AD908D /* ClientController.m */; };
 		6ED24D901A46E80C00AD908D /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED24D8D1A46E80C00AD908D /* AsyncSocket.m */; };
 		6ED24D911A46E80C00AD908D /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED24D8F1A46E80C00AD908D /* AsyncUdpSocket.m */; };
+		6ED4248C1A74C63D00CD0C08 /* FMODController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6ED4248B1A74C63D00CD0C08 /* FMODController.mm */; };
+		6ED424921A74C6CD00CD0C08 /* libfmod_iphoneos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED4248E1A74C6CD00CD0C08 /* libfmod_iphoneos.a */; };
+		6ED424931A74C6CD00CD0C08 /* libfmod_iphonesimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED4248F1A74C6CD00CD0C08 /* libfmod_iphonesimulator.a */; };
+		6ED424941A74C6CD00CD0C08 /* libfmodL_iphoneos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED424901A74C6CD00CD0C08 /* libfmodL_iphoneos.a */; };
+		6ED424951A74C6CD00CD0C08 /* libfmodL_iphonesimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED424911A74C6CD00CD0C08 /* libfmodL_iphonesimulator.a */; };
+		6ED424A01A74C6EC00CD0C08 /* fpc_DrumAndBass_01.mid in Resources */ = {isa = PBXBuildFile; fileRef = 6ED4249F1A74C6EC00CD0C08 /* fpc_DrumAndBass_01.mid */; };
 		6ED47CD81A42FBCE00CA1A8B /* BonjourController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED47CD71A42FBCE00CA1A8B /* BonjourController.m */; };
 		6ED4D6C21A3721B700EAA5EF /* ResponserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED4D6C11A3721B700EAA5EF /* ResponserController.m */; };
 		6ED6296B1A07499800106CE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6296A1A07499800106CE8 /* main.m */; };
@@ -661,10 +668,6 @@
 		6EDA3C651A2301F8007D6D39 /* moving.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6EDA3C641A2301F8007D6D39 /* moving.gif */; };
 		6EE7F4E31A427810009833F0 /* PushController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE7F4E21A427810009833F0 /* PushController.m */; };
 		6EF2B7341A67F05500D93862 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF2B7331A67F05500D93862 /* AudioToolbox.framework */; };
-		6EF2B73D1A67F44F00D93862 /* A.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6EF2B7351A67F44F00D93862 /* A.wav */; };
-		6EF2B7401A67F44F00D93862 /* B.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6EF2B7381A67F44F00D93862 /* B.wav */; };
-		6EF2B7421A67F44F00D93862 /* C.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6EF2B73A1A67F44F00D93862 /* C.wav */; };
-		6EF2B7431A67F44F00D93862 /* D.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6EF2B73B1A67F44F00D93862 /* D.wav */; };
 		6EF5C1F11A26A8120044318A /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF5C0F41A26A8120044318A /* GLProgram.m */; };
 		6EF5C1F21A26A8120044318A /* GPUImage3x3ConvolutionFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF5C0F81A26A8120044318A /* GPUImage3x3ConvolutionFilter.m */; };
 		6EF5C1F31A26A8120044318A /* GPUImage3x3TextureSamplingFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF5C0FA1A26A8120044318A /* GPUImage3x3TextureSamplingFilter.m */; };
@@ -999,6 +1002,7 @@
 		6ED074CB1A4AF6B300D417BB /* CompassController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassController.h; sourceTree = "<group>"; };
 		6ED074CC1A4AF6B300D417BB /* CompassController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompassController.m; sourceTree = "<group>"; };
 		6ED074CE1A4AF71600D417BB /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		6ED075DA1A750A5000DEC1FD /* gm.dls */ = {isa = PBXFileReference; lastKnownFileType = file; path = gm.dls; sourceTree = "<group>"; };
 		6ED084F61A454B720075FE21 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
 		6ED084F71A454B720075FE21 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 		6ED24D881A469D3700AD908D /* ClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientController.h; sourceTree = "<group>"; };
@@ -1007,6 +1011,22 @@
 		6ED24D8D1A46E80C00AD908D /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
 		6ED24D8E1A46E80C00AD908D /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
 		6ED24D8F1A46E80C00AD908D /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+		6ED4248A1A74C63D00CD0C08 /* FMODController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMODController.h; sourceTree = "<group>"; };
+		6ED4248B1A74C63D00CD0C08 /* FMODController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FMODController.mm; sourceTree = "<group>"; };
+		6ED4248E1A74C6CD00CD0C08 /* libfmod_iphoneos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfmod_iphoneos.a; sourceTree = "<group>"; };
+		6ED4248F1A74C6CD00CD0C08 /* libfmod_iphonesimulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfmod_iphonesimulator.a; sourceTree = "<group>"; };
+		6ED424901A74C6CD00CD0C08 /* libfmodL_iphoneos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfmodL_iphoneos.a; sourceTree = "<group>"; };
+		6ED424911A74C6CD00CD0C08 /* libfmodL_iphonesimulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfmodL_iphonesimulator.a; sourceTree = "<group>"; };
+		6ED424961A74C6D600CD0C08 /* fmod_codec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmod_codec.h; sourceTree = "<group>"; };
+		6ED424971A74C6D600CD0C08 /* fmod_common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmod_common.h; sourceTree = "<group>"; };
+		6ED424981A74C6D600CD0C08 /* fmod_dsp_effects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmod_dsp_effects.h; sourceTree = "<group>"; };
+		6ED424991A74C6D600CD0C08 /* fmod_dsp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmod_dsp.h; sourceTree = "<group>"; };
+		6ED4249A1A74C6D600CD0C08 /* fmod_errors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmod_errors.h; sourceTree = "<group>"; };
+		6ED4249B1A74C6D600CD0C08 /* fmod_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmod_ios.h; sourceTree = "<group>"; };
+		6ED4249C1A74C6D600CD0C08 /* fmod_output.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmod_output.h; sourceTree = "<group>"; };
+		6ED4249D1A74C6D600CD0C08 /* fmod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmod.h; sourceTree = "<group>"; };
+		6ED4249E1A74C6D600CD0C08 /* fmod.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = fmod.hpp; sourceTree = "<group>"; };
+		6ED4249F1A74C6EC00CD0C08 /* fpc_DrumAndBass_01.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = fpc_DrumAndBass_01.mid; sourceTree = "<group>"; };
 		6ED47CD61A42FBCE00CA1A8B /* BonjourController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourController.h; sourceTree = "<group>"; };
 		6ED47CD71A42FBCE00CA1A8B /* BonjourController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourController.m; sourceTree = "<group>"; };
 		6ED4D6C01A3721B700EAA5EF /* ResponserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponserController.h; sourceTree = "<group>"; };
@@ -1627,10 +1647,6 @@
 		6EE7F4E11A427810009833F0 /* PushController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushController.h; sourceTree = "<group>"; };
 		6EE7F4E21A427810009833F0 /* PushController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushController.m; sourceTree = "<group>"; };
 		6EF2B7331A67F05500D93862 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		6EF2B7351A67F44F00D93862 /* A.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = A.wav; sourceTree = "<group>"; };
-		6EF2B7381A67F44F00D93862 /* B.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = B.wav; sourceTree = "<group>"; };
-		6EF2B73A1A67F44F00D93862 /* C.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = C.wav; sourceTree = "<group>"; };
-		6EF2B73B1A67F44F00D93862 /* D.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = D.wav; sourceTree = "<group>"; };
 		6EF5C0F31A26A8120044318A /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
 		6EF5C0F41A26A8120044318A /* GLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLProgram.m; sourceTree = "<group>"; };
 		6EF5C0F51A26A8120044318A /* GPUImage-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GPUImage-Prefix.pch"; sourceTree = "<group>"; };
@@ -1922,8 +1938,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EF2B7341A67F05500D93862 /* AudioToolbox.framework in Frameworks */,
+				6ED424941A74C6CD00CD0C08 /* libfmodL_iphoneos.a in Frameworks */,
 				6ECC54591A5C1360004163BC /* CoreMIDI.framework in Frameworks */,
+				6ED424921A74C6CD00CD0C08 /* libfmod_iphoneos.a in Frameworks */,
 				6E1206401A517D2300C18A30 /* CoreBluetooth.framework in Frameworks */,
+				6ED424951A74C6CD00CD0C08 /* libfmodL_iphonesimulator.a in Frameworks */,
 				6ECF22CF1A0A1B1A00B531A7 /* ImageIO.framework in Frameworks */,
 				6ED62A941A085C2A00106CE8 /* libz.dylib in Frameworks */,
 				6ED62A921A085C0E00106CE8 /* MobileCoreServices.framework in Frameworks */,
@@ -1935,6 +1954,7 @@
 				6ED629A81A0755DC00106CE8 /* QuartzCore.framework in Frameworks */,
 				6ED629A71A0755D500106CE8 /* OpenGLES.framework in Frameworks */,
 				6ED629A51A0755CC00106CE8 /* MessageUI.framework in Frameworks */,
+				6ED424931A74C6CD00CD0C08 /* libfmod_iphonesimulator.a in Frameworks */,
 				6ED629A41A0755C300106CE8 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2022,6 +2042,8 @@
 		6E7BE7351A1C24B000268FE2 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				6ED4249F1A74C6EC00CD0C08 /* fpc_DrumAndBass_01.mid */,
+				6ED4248D1A74C69C00CD0C08 /* FMOD */,
 				6ECFF8AD1A4FBC8700D61D57 /* BaiduSDk */,
 				6ED24D8B1A46E7E000AD908D /* CocoaAsyncSocket */,
 				6EF5C0F11A26A7E70044318A /* GUPImageLib */,
@@ -2290,6 +2312,36 @@
 			name = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
+		6ED424891A74C60200CD0C08 /* FMOD */ = {
+			isa = PBXGroup;
+			children = (
+				6ED4248A1A74C63D00CD0C08 /* FMODController.h */,
+				6ED4248B1A74C63D00CD0C08 /* FMODController.mm */,
+			);
+			name = FMOD;
+			sourceTree = "<group>";
+		};
+		6ED4248D1A74C69C00CD0C08 /* FMOD */ = {
+			isa = PBXGroup;
+			children = (
+				6ED075DA1A750A5000DEC1FD /* gm.dls */,
+				6ED424961A74C6D600CD0C08 /* fmod_codec.h */,
+				6ED424971A74C6D600CD0C08 /* fmod_common.h */,
+				6ED424981A74C6D600CD0C08 /* fmod_dsp_effects.h */,
+				6ED424991A74C6D600CD0C08 /* fmod_dsp.h */,
+				6ED4249A1A74C6D600CD0C08 /* fmod_errors.h */,
+				6ED4249B1A74C6D600CD0C08 /* fmod_ios.h */,
+				6ED4249C1A74C6D600CD0C08 /* fmod_output.h */,
+				6ED4249D1A74C6D600CD0C08 /* fmod.h */,
+				6ED4249E1A74C6D600CD0C08 /* fmod.hpp */,
+				6ED4248E1A74C6CD00CD0C08 /* libfmod_iphoneos.a */,
+				6ED4248F1A74C6CD00CD0C08 /* libfmod_iphonesimulator.a */,
+				6ED424901A74C6CD00CD0C08 /* libfmodL_iphoneos.a */,
+				6ED424911A74C6CD00CD0C08 /* libfmodL_iphonesimulator.a */,
+			);
+			name = FMOD;
+			sourceTree = "<group>";
+		};
 		6ED47CD51A42FB9C00CA1A8B /* Bonjour服务发现 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2352,6 +2404,7 @@
 				6ED24D871A469D0800AD908D /* Socket客户端 */,
 				6ED074CA1A4AF68E00D417BB /* 指南针定位南北 */,
 				6E12063B1A517BB600C18A30 /* BLE蓝牙技术 */,
+				6ED424891A74C60200CD0C08 /* FMOD */,
 				6ED629721A07499800106CE8 /* Main.storyboard */,
 				6ED629751A07499800106CE8 /* Images.xcassets */,
 				6ED629771A07499800106CE8 /* LaunchScreen.xib */,
@@ -2364,10 +2417,6 @@
 		6ED629681A07499800106CE8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6EF2B7351A67F44F00D93862 /* A.wav */,
-				6EF2B7381A67F44F00D93862 /* B.wav */,
-				6EF2B73A1A67F44F00D93862 /* C.wav */,
-				6EF2B73B1A67F44F00D93862 /* D.wav */,
 				6ECC3B8C1A3444D2000DAEF2 /* daa.png */,
 				6ECCC50A1A257CE800B2442B /* corner.png */,
 				6E94DCB81A24462A00DF285B /* cut.png */,
@@ -3472,7 +3521,6 @@
 				6ED954DB1A15D44500675829 /* 3.10.4.png in Resources */,
 				6ED956231A15D44600675829 /* 3.9.10.png in Resources */,
 				6ED955361A15D44600675829 /* 3.15.13.png in Resources */,
-				6EF2B7421A67F44F00D93862 /* C.wav in Resources */,
 				6ED954FE1A15D44500675829 /* 3.12.17.png in Resources */,
 				6ED954B71A15D44500675829 /* 3.0.8.png in Resources */,
 				6ED9549E1A15D44500675829 /* 2.9.3.png in Resources */,
@@ -3502,6 +3550,7 @@
 				6ED954811A15D44500675829 /* 2.6.4.png in Resources */,
 				6ED955891A15D44600675829 /* 3.19.16.png in Resources */,
 				6ED955E31A15D44600675829 /* 3.5.8.png in Resources */,
+				6ED075DB1A750A5000DEC1FD /* gm.dls in Resources */,
 				6ED9547A1A15D44500675829 /* 2.5.7.png in Resources */,
 				6ED955681A15D44600675829 /* 3.17.5.png in Resources */,
 				6ED955A91A15D44600675829 /* 3.3.0.png in Resources */,
@@ -3593,7 +3642,6 @@
 				6ED954BD1A15D44500675829 /* 3.1.12.png in Resources */,
 				6ED954E71A15D44500675829 /* 3.11.14.png in Resources */,
 				6ED629791A07499800106CE8 /* LaunchScreen.xib in Resources */,
-				6EF2B7431A67F44F00D93862 /* D.wav in Resources */,
 				6ED955541A15D44600675829 /* 3.16.5.png in Resources */,
 				6ED956201A15D44600675829 /* 3.8.9.png in Resources */,
 				6ED954D21A15D44500675829 /* 3.10.13.png in Resources */,
@@ -3715,7 +3763,6 @@
 				6ED954F11A15D44500675829 /* 3.11.6.png in Resources */,
 				6ED9545A1A15D44500675829 /* 2.2.5.png in Resources */,
 				6ED955991A15D44600675829 /* 3.2.12.png in Resources */,
-				6EF2B7401A67F44F00D93862 /* B.wav in Resources */,
 				6ED9542A1A15D44500675829 /* 1.0.2.png in Resources */,
 				6ED955C41A15D44600675829 /* 3.4.15.png in Resources */,
 				6ED955721A15D44600675829 /* 3.18.13.png in Resources */,
@@ -3827,7 +3874,6 @@
 				6ED954A71A15D44500675829 /* 3.0.10.png in Resources */,
 				6ED955CE1A15D44600675829 /* 3.4.7.png in Resources */,
 				6ED9548A1A15D44500675829 /* 2.7.3.png in Resources */,
-				6EF2B73D1A67F44F00D93862 /* A.wav in Resources */,
 				6ED9546F1A15D44500675829 /* 2.4.6.png in Resources */,
 				6ED955EA1A15D44600675829 /* 3.6.13.png in Resources */,
 				6ED954691A15D44500675829 /* 2.4.0.png in Resources */,
@@ -3890,6 +3936,7 @@
 				6ED955951A15D44600675829 /* 3.2.0.png in Resources */,
 				6ED955FD1A15D44600675829 /* 3.7.12.png in Resources */,
 				6EF5C2911A26A83A0044318A /* 6@2x.jpg in Resources */,
+				6ED424A01A74C6EC00CD0C08 /* fpc_DrumAndBass_01.mid in Resources */,
 				6ED954C81A15D44500675829 /* 3.1.5.png in Resources */,
 				6ED954731A15D44500675829 /* 2.5.0.png in Resources */,
 				6ED955211A15D44600675829 /* 3.14.12.png in Resources */,
@@ -4085,6 +4132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EF5C1F31A26A8120044318A /* GPUImage3x3TextureSamplingFilter.m in Sources */,
+				6ED4248C1A74C63D00CD0C08 /* FMODController.mm in Sources */,
 				6EF5C2561A26A8120044318A /* GPUImageSoftLightBlendFilter.m in Sources */,
 				6EF5C2151A26A8120044318A /* GPUImageFalseColorFilter.m in Sources */,
 				6EF5C25B1A26A8120044318A /* GPUImageSubtractBlendFilter.m in Sources */,
@@ -4407,6 +4455,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -4427,6 +4476,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
