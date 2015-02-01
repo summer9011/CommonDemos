@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBV-de-5KM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBV-de-5KM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -677,16 +677,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCS-oj-wqe">
-                                <rect key="frame" x="285" y="285" width="30" height="30"/>
+                                <rect key="frame" x="223" y="285" width="154" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="DYf-77-lKY"/>
-                                    <constraint firstAttribute="width" constant="30" id="LhL-co-uS1"/>
+                                    <constraint firstAttribute="width" constant="154" id="LhL-co-uS1"/>
                                 </constraints>
-                                <state key="normal" title="Play">
+                                <state key="normal" title="PlayWithAVMIDIPlayer">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="doPlayMIDI:" destination="uun-Lp-jh8" eventType="touchUpInside" id="KSq-if-A0B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwQ-jI-A8t">
+                                <rect key="frame" x="248" y="195" width="105" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="K00-KC-lm8"/>
+                                    <constraint firstAttribute="height" constant="30" id="sxm-y1-0R2"/>
+                                </constraints>
+                                <state key="normal" title="PlayWithFMOD">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playWithFMOD:" destination="uun-Lp-jh8" eventType="touchUpInside" id="8KQ-PN-n1C"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -694,6 +707,8 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="hCS-oj-wqe" secondAttribute="centerX" id="3rM-GO-eFr"/>
                             <constraint firstAttribute="centerY" secondItem="hCS-oj-wqe" secondAttribute="centerY" id="SsS-0T-9ao"/>
+                            <constraint firstItem="hCS-oj-wqe" firstAttribute="top" secondItem="iwQ-jI-A8t" secondAttribute="bottom" constant="60" id="WwQ-vt-uMt"/>
+                            <constraint firstAttribute="centerX" secondItem="iwQ-jI-A8t" secondAttribute="centerX" id="t5u-wp-BxR"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -11,7 +11,7 @@
 
 #import <AudioToolbox/AudioToolbox.h>
 
-#define IP @"192.168.1.101"
+#define IP @"121.40.129.209"
 #define PORT 8480
 
 @interface ClientController () <AsyncSocketDelegate,UITableViewDataSource,UITableViewDelegate> {
@@ -73,6 +73,7 @@
     if (![asyncSocket connectToHost:ip onPort:port error:&error]) {
         NSLog(@"error %@",error);
     }
+    NSLog(@"error %@",error);
     
 }
 

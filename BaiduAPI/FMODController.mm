@@ -14,6 +14,63 @@
 
 #import <AVFoundation/AVFoundation.h>
 
+#define NUM_COLUMNS 50
+#define NUM_ROWS 25
+
+NSMutableString *gOutputBuffer;
+bool gSuspendState;
+
+void interruptionListenerCallback(void *inUserData, UInt32 interruptionState) {
+    if (interruptionState == kAudioSessionBeginInterruption)
+    {
+        gSuspendState = true;
+    }
+    else if (interruptionState == kAudioSessionEndInterruption)
+    {
+        UInt32 sessionCategory = kAudioSessionCategory_PlayAndRecord;
+        AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
+        AudioSessionSetActive(true);
+        
+        gSuspendState = false;
+    }
+}
+
+void Common_Init(void **extraDriverData) {
+    gSuspendState = false;
+    gOutputBuffer = [NSMutableString stringWithCapacity:(NUM_COLUMNS * NUM_ROWS)];
+    
+    AudioSessionInitialize(NULL, NULL, interruptionListenerCallback, NULL);
+    
+    // Default to 'play and record' so we have recording available for examples that use it
+    UInt32 sessionCategory = kAudioSessionCategory_PlayAndRecord;
+    AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
+    AudioSessionSetActive(true);
+}
+
+const char *Common_MediaPath(NSString *fileName,NSString *ext) {
+    return [[[NSBundle mainBundle] pathForResource:fileName ofType:ext] UTF8String];
+}
+
+void Common_LoadFileMemory(const char *name, void **buff, int *length) {
+    FILE *file = fopen(name, "rb");
+    
+    fseek(file, 0, SEEK_END);
+    long len = ftell(file);
+    fseek(file, 0, SEEK_SET);
+    
+    void *mem = malloc(len);
+    fread(mem, 1, len, file);
+    
+    fclose(file);
+    
+    *buff = mem;
+    *length = (int)len;
+}
+
+void Common_UnloadFileMemory(void *buff) {
+    free(buff);
+}
+
 void ERRCHECK(FMOD_RESULT result) {
     if (result != FMOD_OK) {
         fprintf(stderr, "FMOD error! (%d) %s ", result, FMOD_ErrorString(result));
@@ -26,7 +83,6 @@ void ERRCHECK(FMOD_RESULT result) {
     FMOD::Sound *sound;
     FMOD::Channel *channel;
     FMOD_RESULT result;
-    FMOD_CREATESOUNDEXINFO soundExInfo;
 }
 
 @end
@@ -43,6 +99,9 @@ void ERRCHECK(FMOD_RESULT result) {
     channel=NULL;
     
     unsigned int version=0;
+    void *extradriverdata=0;
+    
+    Common_Init(&extradriverdata);
     
     //初始化System
     result=FMOD::System_Create(&system);
@@ -56,20 +115,28 @@ void ERRCHECK(FMOD_RESULT result) {
         exit(-1);
     }
     
-    result=system->init(32, FMOD_INIT_NORMAL, NULL);
+    result=system->init(32, FMOD_INIT_NORMAL, extradriverdata);
     ERRCHECK(result);
+}
+
+- (IBAction)playWithFMOD:(id)sender {
+    int length=0;
+    void *buff=0;
+    
+    Common_LoadFileMemory(Common_MediaPath(@"snare", @"wav"), &buff, &length);
     
     //设置dls文件
+    FMOD_CREATESOUNDEXINFO soundExInfo;
     memset(&soundExInfo, 0, sizeof(FMOD_CREATESOUNDEXINFO));
     soundExInfo.cbsize=sizeof(FMOD_CREATESOUNDEXINFO);
     soundExInfo.dlsname=[[[NSBundle mainBundle] pathForResource:@"gm" ofType:@"dls"] UTF8String];
+    soundExInfo.length=length;
     
-    //添加第一个MIDI文件
-    result=system->createSound([[[NSBundle mainBundle] pathForResource:@"fpc_DrumAndBass_01" ofType:@"mid"] UTF8String], FMOD_DEFAULT, &soundExInfo, &sound);
+    
+    result=system->createSound((const char *)buff, FMOD_OPENMEMORY | FMOD_LOOP_OFF, &soundExInfo, &sound);
     ERRCHECK(result);
-    result=sound->setMode(FMOD_LOOP_OFF);
-    ERRCHECK(result);
-
+    Common_UnloadFileMemory(buff);
+    
     //播放
     result=system->playSound(sound, 0, false, &channel);
     ERRCHECK(result);

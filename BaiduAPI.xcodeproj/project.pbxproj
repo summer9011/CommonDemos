@@ -29,6 +29,7 @@
 		6E590BA01A0C920300190F79 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E590B8F1A0C920300190F79 /* UIImageView+WebCache.m */; };
 		6E590BA11A0C920300190F79 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E590B911A0C920300190F79 /* UIView+WebCacheOperation.m */; };
 		6E590BAA1A0C9C6700190F79 /* CustomCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E590BA91A0C9C6700190F79 /* CustomCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6E6F1FE81A7DBA3D00E93A2F /* snare.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6E6F1FE71A7DBA3D00E93A2F /* snare.wav */; };
 		6E7BE7291A1C1E8000268FE2 /* HandleImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7BE7281A1C1E8000268FE2 /* HandleImageController.m */; };
 		6E7BE7391A1C26F700268FE2 /* ShowImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7BE7371A1C26F700268FE2 /* ShowImageController.m */; };
 		6E7BE73A1A1C26F700268FE2 /* ShowImageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7BE7381A1C26F700268FE2 /* ShowImageController.xib */; };
@@ -877,6 +878,7 @@
 		6E590B911A0C920300190F79 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		6E590BA81A0C9C6700190F79 /* CustomCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCache.h; sourceTree = "<group>"; };
 		6E590BA91A0C9C6700190F79 /* CustomCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCache.m; sourceTree = "<group>"; };
+		6E6F1FE71A7DBA3D00E93A2F /* snare.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = snare.wav; sourceTree = "<group>"; };
 		6E7BE7271A1C1E8000268FE2 /* HandleImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandleImageController.h; sourceTree = "<group>"; };
 		6E7BE7281A1C1E8000268FE2 /* HandleImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandleImageController.m; sourceTree = "<group>"; };
 		6E7BE7361A1C26F700268FE2 /* ShowImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowImageController.h; sourceTree = "<group>"; };
@@ -2042,7 +2044,6 @@
 		6E7BE7351A1C24B000268FE2 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				6ED4249F1A74C6EC00CD0C08 /* fpc_DrumAndBass_01.mid */,
 				6ED4248D1A74C69C00CD0C08 /* FMOD */,
 				6ECFF8AD1A4FBC8700D61D57 /* BaiduSDk */,
 				6ED24D8B1A46E7E000AD908D /* CocoaAsyncSocket */,
@@ -2315,6 +2316,8 @@
 		6ED424891A74C60200CD0C08 /* FMOD */ = {
 			isa = PBXGroup;
 			children = (
+				6ED4249F1A74C6EC00CD0C08 /* fpc_DrumAndBass_01.mid */,
+				6E6F1FE71A7DBA3D00E93A2F /* snare.wav */,
 				6ED4248A1A74C63D00CD0C08 /* FMODController.h */,
 				6ED4248B1A74C63D00CD0C08 /* FMODController.mm */,
 			);
@@ -4113,6 +4116,7 @@
 				6ED9552A1A15D44600675829 /* 3.14.3.png in Resources */,
 				6ED956311A15D44600675829 /* 3.9.6.png in Resources */,
 				6ED955751A15D44600675829 /* 3.18.16.png in Resources */,
+				6E6F1FE81A7DBA3D00E93A2F /* snare.wav in Resources */,
 				6ED955E41A15D44600675829 /* 3.5.9.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
