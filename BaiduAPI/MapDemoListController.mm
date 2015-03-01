@@ -35,7 +35,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return 21;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -101,6 +101,9 @@
             break;
         case 19:
             cell.textLabel.text=@"FMOD播放MIDI";
+            break;
+        case 20:
+            cell.textLabel.text=@"后台下载";
             break;
     }
     
@@ -172,6 +175,9 @@
             break;
         case 19:
             VC=[board instantiateViewControllerWithIdentifier:@"FMODVC"];
+            break;
+        case 20:
+            VC=[board instantiateViewControllerWithIdentifier:@"BackDownloadVC"];
             break;
     }
     

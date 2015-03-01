@@ -84,6 +84,7 @@
 		6ED24D8A1A469D3700AD908D /* ClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED24D891A469D3700AD908D /* ClientController.m */; };
 		6ED24D901A46E80C00AD908D /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED24D8D1A46E80C00AD908D /* AsyncSocket.m */; };
 		6ED24D911A46E80C00AD908D /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED24D8F1A46E80C00AD908D /* AsyncUdpSocket.m */; };
+		6ED3A8191A9DE917008C0A7E /* BackgroundDownloadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3A8181A9DE917008C0A7E /* BackgroundDownloadController.m */; };
 		6ED4248C1A74C63D00CD0C08 /* FMODController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6ED4248B1A74C63D00CD0C08 /* FMODController.mm */; };
 		6ED424921A74C6CD00CD0C08 /* libfmod_iphoneos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED4248E1A74C6CD00CD0C08 /* libfmod_iphoneos.a */; };
 		6ED424931A74C6CD00CD0C08 /* libfmod_iphonesimulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED4248F1A74C6CD00CD0C08 /* libfmod_iphonesimulator.a */; };
@@ -1013,6 +1014,8 @@
 		6ED24D8D1A46E80C00AD908D /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
 		6ED24D8E1A46E80C00AD908D /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
 		6ED24D8F1A46E80C00AD908D /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+		6ED3A8171A9DE917008C0A7E /* BackgroundDownloadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundDownloadController.h; sourceTree = "<group>"; };
+		6ED3A8181A9DE917008C0A7E /* BackgroundDownloadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundDownloadController.m; sourceTree = "<group>"; };
 		6ED4248A1A74C63D00CD0C08 /* FMODController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMODController.h; sourceTree = "<group>"; };
 		6ED4248B1A74C63D00CD0C08 /* FMODController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FMODController.mm; sourceTree = "<group>"; };
 		6ED4248E1A74C6CD00CD0C08 /* libfmod_iphoneos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfmod_iphoneos.a; sourceTree = "<group>"; };
@@ -2313,6 +2316,15 @@
 			name = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
+		6ED3A8161A9DE8B8008C0A7E /* 后台下载 */ = {
+			isa = PBXGroup;
+			children = (
+				6ED3A8171A9DE917008C0A7E /* BackgroundDownloadController.h */,
+				6ED3A8181A9DE917008C0A7E /* BackgroundDownloadController.m */,
+			);
+			name = "后台下载";
+			sourceTree = "<group>";
+		};
 		6ED424891A74C60200CD0C08 /* FMOD */ = {
 			isa = PBXGroup;
 			children = (
@@ -2408,6 +2420,7 @@
 				6ED074CA1A4AF68E00D417BB /* 指南针定位南北 */,
 				6E12063B1A517BB600C18A30 /* BLE蓝牙技术 */,
 				6ED424891A74C60200CD0C08 /* FMOD */,
+				6ED3A8161A9DE8B8008C0A7E /* 后台下载 */,
 				6ED629721A07499800106CE8 /* Main.storyboard */,
 				6ED629751A07499800106CE8 /* Images.xcassets */,
 				6ED629771A07499800106CE8 /* LaunchScreen.xib */,
@@ -4149,6 +4162,7 @@
 				6EF5C2131A26A8120044318A /* GPUImageExclusionBlendFilter.m in Sources */,
 				6EF5C21D1A26A8120044318A /* GPUImageGlassSphereFilter.m in Sources */,
 				6ED6D21D1A12FEAE0036541E /* JCTiledScrollView.m in Sources */,
+				6ED3A8191A9DE917008C0A7E /* BackgroundDownloadController.m in Sources */,
 				6EF5C2691A26A8120044318A /* GPUImageVideoCamera.m in Sources */,
 				6E94DCC41A24531300DF285B /* NLImageCropperView.m in Sources */,
 				6EF5C2591A26A8120044318A /* GPUImageStillCamera.m in Sources */,

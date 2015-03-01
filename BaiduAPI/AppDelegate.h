@@ -17,5 +17,7 @@
 @property (nonatomic,retain)BMKMapManager *_mapManager;     //百度地图
 @property (nonatomic,retain)CustomCache *myCache;           //自定义缓存
 
+@property (copy) void (^backgroundSessionCompletionHandler)();
+
 @end
 

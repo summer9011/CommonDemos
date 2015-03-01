@@ -546,6 +546,60 @@
             </objects>
             <point key="canvasLocation" x="-629" y="4141"/>
         </scene>
+        <!--后台下载-->
+        <scene sceneID="X21-MF-gxy">
+            <objects>
+                <viewController storyboardIdentifier="BackDownloadVC" title="后台下载" useStoryboardIdentifierAsRestorationIdentifier="YES" id="W1T-rD-sWr" userLabel="后台下载" customClass="BackgroundDownloadController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bZn-wM-kQ3"/>
+                        <viewControllerLayoutGuide type="bottom" id="GsQ-Yc-bLs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ECx-Cm-ZnP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tNY-bq-y76">
+                                <rect key="frame" x="36" y="70" width="528" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="c0f-4q-Wdg"/>
+                                </constraints>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryT-Nj-QjB">
+                                <rect key="frame" x="249" y="133" width="102" height="30"/>
+                                <state key="normal" title="StartDownload">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startDownload:" destination="W1T-rD-sWr" eventType="touchUpInside" id="lJI-jZ-I2t"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVe-eC-mpr">
+                                <rect key="frame" x="280" y="92" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ryT-Nj-QjB" firstAttribute="top" secondItem="AVe-eC-mpr" secondAttribute="bottom" constant="20" id="PbN-i0-b5u"/>
+                            <constraint firstItem="tNY-bq-y76" firstAttribute="top" secondItem="bZn-wM-kQ3" secondAttribute="bottom" constant="50" id="Tfj-UI-C2c"/>
+                            <constraint firstItem="tNY-bq-y76" firstAttribute="leading" secondItem="ECx-Cm-ZnP" secondAttribute="leadingMargin" constant="20" id="a38-GS-s6P"/>
+                            <constraint firstAttribute="centerX" secondItem="ryT-Nj-QjB" secondAttribute="centerX" id="abL-AF-xRs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tNY-bq-y76" secondAttribute="trailing" constant="20" id="afr-qF-pmd"/>
+                            <constraint firstItem="AVe-eC-mpr" firstAttribute="top" secondItem="tNY-bq-y76" secondAttribute="bottom" constant="20" id="h5p-de-evm"/>
+                            <constraint firstAttribute="centerX" secondItem="AVe-eC-mpr" secondAttribute="centerX" id="hwG-0k-xkt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progressLabel" destination="AVe-eC-mpr" id="tUJ-r9-qb1"/>
+                        <outlet property="progressView" destination="tNY-bq-y76" id="wfy-tg-oWw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rx6-II-Gs6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-629" y="4833"/>
+        </scene>
         <!--基于地理位置的消息推送-->
         <scene sceneID="KAh-oI-N55">
             <objects>

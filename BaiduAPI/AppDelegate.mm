@@ -55,12 +55,31 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 }
 
--(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier
+  completionHandler:(void (^)())completionHandler {
+    self.backgroundSessionCompletionHandler = completionHandler;
+    //add notification
+    [self presentNotification];
+}
+
+-(void)presentNotification{
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.alertBody = @"Download Complete!";
+    localNotification.alertAction = @"Background Transfer Download!";
+    //On sound
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    //increase the badge number of application plus 1
+    localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     NSString *msg=[NSString stringWithFormat:@"center(%f,%f) radius(%f)",notification.region.center.longitude,notification.region.center.latitude,notification.region.radius];
     
     UIAlertView *alert=[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@ alert",notification.alertBody] message:msg delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
