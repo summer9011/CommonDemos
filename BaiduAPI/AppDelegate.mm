@@ -37,12 +37,39 @@
     
 //    NSLog(@"ASI缓存目录 %@",cachePath);
     
-    //ios8注册消息通知
+    //ios8注册消息通知,注册远程通知
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+        
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    }else{
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound|UIRemoteNotificationTypeAlert];
     }
     
+    
     return YES;
+}
+
+//远程推送通知
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"remoteNotification register success: %@", deviceToken);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    NSLog(@"didReceiveRemoteNotification %@", userInfo[@"aps"]);
+    
+    //收到通知推送处理业务逻辑
+    
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"remoteNotification register error %@", [error localizedDescription]);
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"didReceiveLocalNotification" message:notification.alertAction delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -77,13 +104,6 @@
     //increase the badge number of application plus 1
     localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
     [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
-}
-
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    NSString *msg=[NSString stringWithFormat:@"center(%f,%f) radius(%f)",notification.region.center.longitude,notification.region.center.latitude,notification.region.radius];
-    
-    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@ alert",notification.alertBody] message:msg delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
-    [alert show];
 }
 
 ///**

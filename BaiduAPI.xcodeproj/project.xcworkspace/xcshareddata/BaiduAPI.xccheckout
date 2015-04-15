@@ -7,20 +7,16 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>B866D9CF-BE5D-499E-BD18-7DE23081E957</string>
 	<key>IDESourceControlProjectName</key>
-	<string>BaiduAPI</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>3D2EFAE22E8849504A9D2B48196BC249DA8B1B4B</key>
-		<string>https://github.com/summer9011/BaiduMap.git</string>
 		<key>82731F68B655393E45F83929A5A84CFD14D5C085</key>
 		<string>https://github.com/summer9011/BaiduDemo.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>BaiduAPI.xcodeproj</string>
+	<string>BaiduAPI.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>3D2EFAE22E8849504A9D2B48196BC249DA8B1B4B</key>
-		<string>../../../BaiduAPI</string>
 		<key>82731F68B655393E45F83929A5A84CFD14D5C085</key>
 		<string>../..</string>
 	</dict>
@@ -32,14 +28,6 @@
 	<string>82731F68B655393E45F83929A5A84CFD14D5C085</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>3D2EFAE22E8849504A9D2B48196BC249DA8B1B4B</string>
-			<key>IDESourceControlWCCName</key>
-			<string>BaiduAPI</string>
-		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

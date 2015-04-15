@@ -3489,6 +3489,9 @@
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = RSXSFANAY7;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.GameCenter = {
 								enabled = 0;
 							};

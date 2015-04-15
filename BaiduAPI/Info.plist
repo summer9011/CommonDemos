@@ -32,6 +32,10 @@
 	<string>我们需要你授权来获取地理位置</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>我们需要你授权来获取地理位置</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
