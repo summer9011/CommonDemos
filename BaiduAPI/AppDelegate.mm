@@ -53,18 +53,27 @@
 //远程推送通知
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"remoteNotification register success: %@", deviceToken);
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"deviceToken" message:[NSString stringWithFormat:@"%@", deviceToken] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"didReceiveRemoteNotification %@", userInfo[@"aps"]);
     
     //收到通知推送处理业务逻辑
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:userInfo forKey:@"push"];
+    [userDefaults synchronize];
     
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSLog(@"remoteNotification register error %@", [error localizedDescription]);
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"remoteNotification" message:[NSString stringWithFormat:@"%@", [error localizedDescription]] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
@@ -83,6 +92,16 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     application.applicationIconBadgeNumber = 0;
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *userInfo = [userDefaults valueForKey:@"push"];
+    if (userInfo) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"push userinfo" message:[NSString stringWithFormat:@"%@", userInfo] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+    [userDefaults removeObjectForKey:@"push"];
+    [userDefaults synchronize];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
